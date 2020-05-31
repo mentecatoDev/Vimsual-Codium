@@ -1,0 +1,30 @@
+site_name: Vimsual Codium 
+nav:
+  - 01 Introducción: 01_introduccion.md
+  - 02 Instalación : 02_instalacion.md
+  - 03 Primeros pasos : 03_primeros_pasos.md
+  - 04 Moviéndote : 04_moviendote.md
+  - 05 Operadores : 05_operadores.md
+  - 06 Lenguaje secreto : 06_lenguaje_secreto.md
+  - 07 Insertar texto : 07_insertar_texto.md
+  - 08 Seleccionar texto : 08_seleccionar_texto.md
+  - 09 Coincidencias de búsqueda : 09_coincidencias_de_busqueda.md
+  - 10 Copiar y pegar : 10_copiar_y_pegar.md
+  - 11 Modo línea de comando : 11_modo_linea_de_comando.md
+  - 12 Divisiones y pestañas : 12_divisiones_y_pestanas.md
+  - 13 Vim-surround : 13_vim-surround.md
+  - 14 Asignaciones personalizadas : 14_asignaciones_personalizadas.md
+  - 15 Más rápido : 15_mas_rapido.md
+  - 16 Cursores múltiples : 16_cursores_multiples.md
+  - 17 Macros : 17_macros.md
+  - 18 Explorador de archivos : 18_explorador_de_archivos.md
+  - 19 VSCode con Neovim : 19_vscode_con_neovim.md
+  - 20 Teclas prácticas : 20_teclas_practicas.md
+  - 21 Epílogo: 21_epilogo.md
+
+theme: windmill
+
+plugins:
+    - search:
+        separator: '[\s\-\.]+'
+        lang: es
