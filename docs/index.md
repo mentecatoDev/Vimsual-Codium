@@ -1,17 +1,25 @@
-# Welcome to MkDocs
+# Bienvenido a Vimsual Codium
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+## Índice de contenidos
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+### 01 Introducción
+### 02 Instalación
+### 03 Primeros pasos
+### 04 Moviéndote
+### 05 Operadores
+### 06 Lenguaje secreto
+### 07 Insertar texto
+### 08 Seleccionar texto
+### 09 Coincidencias de búsqueda
+### 10 Copiar y pegar
+### 11 Modo línea de comando
+### 12 Divisiones y pestañas
+### 13 Vim-surround
+### 14 Asignaciones personalizadas
+### 15 Más rapido
+### 16 Cursores multiples
+### 17 Macros
+### 18 Explorador de archivos
+### 19 VSCode con Neovim
+### 20 Teclas prácticas
+### 21 Epílogo
