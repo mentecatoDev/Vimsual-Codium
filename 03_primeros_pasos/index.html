@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>03 Primeros pasos - Vimsual Codium</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Primeros pasos en VIM", url: "#_top", children: [
+              {title: "Modos en VIM", url: "#modos-en-vim" },
+              {title: "Modo normal", url: "#modo-normal" },
+              {title: "Movimiento b\u00e1sico en VIM", url: "#movimiento-basico-en-vim" },
+              {title: "Del modo normal al modo de inserci\u00f3n y viceversa", url: "#del-modo-normal-al-modo-de-insercion-y-viceversa" },
+              {title: "Intercambiar la tecla de bloqueo de may\u00fasculas con ESC", url: "#intercambiar-la-tecla-de-bloqueo-de-mayusculas-con-esc" },
+              {title: "Una nota importante para usuarios de windows y Linux", url: "#una-nota-importante-para-usuarios-de-windows-y-linux" },
+              {title: "RESUMEN", url: "#resumen" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../04_moviendote/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../04_moviendote/" class="btn btn-xs btn-link">
+        04 Moviéndote
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../02_instalacion/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../02_instalacion/" class="btn btn-xs btn-link">
+        02 Instalación
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="primeros-pasos-en-vim">Primeros pasos en VIM</h1>
+<p>Un cursor en forma de rectángulo... ¡Curioso! Si intentas escribir texto en este momento, te sorprenderás al ver que no sucede nada; ó, para ser más precisos, no pasa nada de lo que esperabas. Por un lado, a medida que escribes en el teclado, no se reflejan caracteres en la pantalla. De hecho, es probable que al escribir, te topes con un comando de significado especial que enviará tu cursor volando por la pantalla o incluso eliminará o editará algún código.</p>
+<p>Todo este comportamiento extraño e inesperado es el resultado del <strong>modo Normal</strong>, el modo predeterminado en el que interactúas con el código en VIM. Y, en <em>modo Normal</em>, uno no inserta texto.</p>
+<p>Entonces, ¿qué es el <strong>modo normal</strong>? Y, además, <strong>¿qué significa el modo</strong>?.</p>
+<p><img alt="Modo normal en VSCodeVIM" src="../img/normal-mode.png" /></p>
+<p><em>¿Ves el mensaje --NORMAL-- en tu barra de estado? Eso es VSCodeVIM que te dice que estás en modo Normal.</em></p>
+<h2 id="modos-en-vim">Modos en VIM</h2>
+<p>Los modos son una de las decisiones de diseño más importantes e impactantes en VIM, por lo que vale la pena pasar un poco de tiempo para comprender realmente qué significan los modos y cómo afectan en la experiencia del desarrollador de VIM.</p>
+<p>Los modos VIM siguen el mismo principio de <strong>usa el sombrero adecuado</strong> para la situación correcta. Dependiendo de la tarea en cuestión, puedes (figurativamente) <em>usar el sombrero adecuado</em> para adaptar mejor tu forma de pensar, comportamiento y mentalidad a esa situación. Por ejemplo, si estás tratando de resolver un problema de formas novedosas, es posible que desees usar una gorra de explorador que muestre tu mentalidad exploratoria. Si quieres ser valiente y atrevido en una situación incómoda, usarás el casco de un vikingo. ¿Diplomático? Un sombrero de cortesano, etc.</p>
+<p>De manera similar, el editor de VIM tiene diferentes modos que se adaptan mejor a la realización de diferentes tareas. Por ejemplo, estos son tres de los modos más comunes en VIM:</p>
+<p><img alt="Algunos modos en VIM" src="../img/vim-modes-explanation.jpg" /></p>
+<p>Al igual que usar el sombrero adecuado, cuando uses VIM usará el <em>modo Insertar</em> cuando su objetivo sea <strong>insertar texto</strong>. Utilizará el <em>modo Normal</em> cuando su objetivo sea <strong>editar texto</strong> o navegar a través de su base de código, y utilizará el <em>modo Visual</em> cuando desee <strong>seleccionar algún texto</strong>.</p>
+<p>Pero, ¿qué significan exactamente los modos? ¿Qué significa adaptarse a la tarea en cuestión en el contexto de un editor de texto?</p>
+<p>En esencia, significa que tu teclado adquiere diferentes capacidades según el modo en el que se encuentre. Es decir, según el modo en el que se encuentre, al escribir una tecla en tu teclado obtendrás diferentes resultados adaptados a ese modo en particular. Toma la letra <code>w</code>, por ejemplo. Escribe <code>w</code> en cualquiera de estos modos y esto es lo que sucederá:</p>
+<p><img alt="Cómo escribir la letra w afecta a VIM en diferentes modos" src="../img/vim-modes-example.jpg" /></p>
+<ul>
+<li>En el <em>modo Insertar</em> , <strong>escribirá</strong> la letra <code>w</code>, como en cualquier otro editor.</li>
+<li>En el <em>modo Normal</em> , <strong>moverá</strong> el cursor al comienzo de la siguiente palabra.</li>
+<li>En el <em>modo Visual</em> , <strong>seleccionará el</strong> texto hasta e incluyendo el comienzo de la siguiente palabra.</li>
+</ul>
+<p>Entonces, ¿qué ganamos con que VIM sea un editor modal?</p>
+<p>Gracias a la existencia de modos, el teclado se convierte en una pizarra en blanco en cada uno de ellos. Lo que significa que VIM es libre de adaptar completamente el teclado para que sea el más efectivo para realizar la tarea en cuestión, teniendo la funcionalidad deseada al alcance de la mano. Como resultado, y a diferencia de otros editores no modales, VIM no necesita confiar en combinaciones de teclas locas (<code>CTRL+ALT+SHIT+something</code>). Eso significa que serás más rápido, serás más efectivo y mantendrás la salud de tus muñecas y dedos mucho más tiempo.</p>
+<p>Si. Estás en <strong>modo Normal</strong>. En este modo no inserta texto. En cambio, te mueves y lo editas. Esta decisión de diseño surge de la constatación de que <strong>pasamos mucho más tiempo leyendo, navegando y cambiando el código de lo que lo hacemos insertándolo en primer lugar</strong>.</p>
+<h2 id="modo-normal">Modo normal</h2>
+<p>Así que, el <strong>modo Normal</strong> es el modo predeterminado en VIM (a diferencia del <em>modo Insertar</em> , que es el modo predeterminado y único en la mayoría de los otros editores). En <em>modo Normal</em> no se inserta texto. En cambio, te mueves y lo editas. Esta decisión de diseño surge de la constatación de que <strong>pasamos mucho más tiempo leyendo, navegando y cambiando el código que insertándolo inicialmente</strong>.</p>
+<p><strong>El modo normal</strong> puede sentirse como un lugar hostil al principio, ya que escribir cualquier tecla puede y dará como resultado un comportamiento inesperado. Por lo tanto, ayuda entrar en <em>modo Normal</em> con un poco de preparación. Estos son los conceptos básicos que necesitas para sobrevivir y comenzar a desarrollar tus habilidades de VIM:</p>
+<ul>
+<li><strong>Muévete</strong> con las teclas <code>hjkl</code>.</li>
+<li><strong>Entra en el modo de inserción</strong>, con <code>i</code>, el que permite escribir cosas como de costumbre.</li>
+<li><strong>Regresa al modo Normal</strong> con <code>&lt;ESC&gt;</code>, <code>&lt;CTRL&gt;-C</code> o <code>&lt;CTRL&gt;-[</code>.</li>
+</ul>
+<h2 id="movimiento-basico-en-vim">Movimiento básico en VIM</h2>
+<p><strong><code>hjkl</code> son los movimientos centrales y más básicos en VIM</strong>. Te permite mover el cursor un caracter en cada dirección:</p>
+<p><img alt="Moverse en VIM con hjkl" src="../img/vim-basics-hjkl.jpg" /></p>
+<p>No es la forma más efectiva ni la más eficiente de moverse en VIM, pero sí te <strong>brindan agilidad y confianza</strong> para moverte por un archivo en <em>modo Normal</em>. Aprender <code>hjkl</code> de manera efectiva es el equivalente a aprender a caminar, o aprender a andar en bicicleta.</p>
+<p>Después de que te sientas cómodo con más movimientos de VIM, no usarás <code>hjkl</code> tanto, pero serán <strong>muy útiles para movimientos de corta distancia y pequeñas correcciones</strong>. <code>j</code> y <code>k</code> también son muy útiles dentro del explorador de archivos, la paleta de comandos y los paneles <em>Ir a</em> ya que te permiten moverte hacia arriba y hacia abajo y seleccionar diferentes elementos.</p>
+<h2 id="del-modo-normal-al-modo-de-insercion-y-viceversa">Del modo normal al modo de inserción y viceversa</h2>
+<p><img alt="Pasando del modo normal al modo de inserción y viceversa" src="../img/vim-basics-insert-to-normal.jpg" /></p>
+<p>La tecla <code>i</code> te permite ingresar al <em>modo Insertar</em> después del cursor. <strong>Al comienzo de tu viaje a VIM, puedes ver <code>i</code> como una escotilla de escape hacia la cordura</strong>. Si alguna vez te sientes estresado y no estás progresando, puedes <code>i</code>ngresar al <em>modo Insertar</em>, el mundo donde tu editor se comporta como lo hizo antes de instalar VIM.</p>
+<p>Cuando te sientas con energía y entusiasmo, puedes escribir <code>&lt;ESC&gt;</code>, <code>&lt;CTRL&gt;-C</code> o <code>&lt;CTRL&gt;-[</code> y se te devolverá al <em>modo normal</em> en el que podrás editar y navegar por tu código. A medida que ganes confianza y aprendas más comandos, descubrirás que pasarás más y más tiempo en el <em>modo Normal</em>, y solo en el <em>modo Insertar</em> para ataques de edición de texto tácticos y precisos.</p>
+<p><code>&lt;ESC&gt;</code> o <code>&lt;CTRL&gt;-[</code> pueden ser incómodos de escribir, por lo que tiendo a recomendar que se use <code>&lt;CTRL&gt;-C</code>. Y dado que usarás la tecla <code>CTRL</code> con bastante frecuencia (aunque no tan a menudo como con otros editores), te recomiendo que sigas este consejo:</p>
+<h2 id="intercambiar-la-tecla-de-bloqueo-de-mayusculas-con-esc">Intercambiar la tecla de bloqueo de mayúsculas con ESC</h2>
+<p>Algo muy útil cuando se usa VIM es reasignar la <em>tecla de bloqueo de mayúsculas</em> a <em>escape</em>. Hacer esto significa que ahora puedes alcanzar fácilmente una tecla muy utilizada en programación, como <em>Esc</em>, desde la comodidad de la fila de inicio del teclado. Solo necesitas estirar ese dedo meñique hacia la izquierda medio centímetro y ya está. El bloqueo de mayúscula puede reasignarse a la tecla <em>Esc</em> igualmente, con lo que tampoco se pierde esta funcionalidad y se evita tener teclas duplicadas para la misma función.</p>
+<p>El proceso es específico para cada sistema y habría que investigar <em>cómo hacerlo</em> en cada uno de ellos. Como ejemplo veamos el caso del conocido escritorio <strong>Plasma de KDE</strong>.</p>
+<ul>
+<li>Accedemos a la configuración de nuestro teclado y seleccionamos la pestaña <em>Avanzada</em>.</li>
+<li>Desplegamos <em>Comportamiento de Bloq Mayús</em> y seleccionamos el que más nos interese; en este caso <strong>Intercambiar Esc y Bloq Mayús</strong> si bien se podría haber elegido <strong>Hacer de Bloq Mayús un Esc adicional</strong> ó <strong>Make unmodified Caps Lock an additional Esc, but Shift + Caps Lock behaves like regular Caps Lock</strong>.</li>
+</ul>
+<p>Hay quien prefiere utilizar <code>Caps Lock</code> como una  alternativa más accesible para la tecla <code>Ctrl</code> dado que <strong>Vim</strong> usa la combinación <code>&lt;Ctrl&gt;-C</code> como altenativa a <code>Esc</code> como ya hemos señalado.</p>
+<p><img alt="image-20200527111313623" src="/home/giganticux/.config/Typora/typora-user-images/image-20200527111313623.png" /></p>
+<p>Si bien podríamos pensar que ya está todo listo, no es el caso. De hecho podemos comprobar que nuestro cambio se ha hecho efectivo para todo el sistema y funciona allá donde lo probemos; por ejemplo en una versión clásica de <strong>Vim</strong>. Pero no así en <strong>Visual Studio Code</strong> que presenta la característica de usar su propio <em>dispatcher</em> de teclas. Hemos de cambiar este comportamiento para que use el del propio sistema accediendo a <em>Settings</em> y cambiando la propiedad <a href="http://github.com/microsoft/vscode/wiki/Keybinding-issues"><em>keyboard.dispatch</em></a> estableciéndola en <em>keyCode</em> como se muestra en la imagen siguiente:</p>
+<p><img alt="image-20200527110646536" src="/home/giganticux/.config/Typora/typora-user-images/image-20200527110646536.png" /></p>
+<h2 id="una-nota-importante-para-usuarios-de-windows-y-linux">Una nota importante para usuarios de windows y Linux</h2>
+<p>Espera... ¿<code>&lt;CTRL&gt;-C</code> para volver al <strong>modo Normal</strong>? ¿No es eso lo que he estado usando toda la vida para copiar cosas?</p>
+<p>Instalar VSCodeVIM tiene un par de efectos secundarios. Una es que obtienes ese extraño cursor cuadrado que acabamos de comentar, y la otra es que algunas teclas de uso común se reasignan a su función natural en la tierra de VIM. Por ejemplo:</p>
+<ul>
+<li><code>&lt;CTRL&gt;-C</code> ya no copia, en su lugar te devuelve al <em>modo Normal</em>. El comando que usamos en VIM para copiar es mucho menos detallado: <strong><code>y</code></strong> (por <em>yank</em>, tirar).</li>
+<li><code>&lt;CTRL&gt;-V</code> ya no pega y en su lugar te envía al <em>modo de bloque visual</em> . Nuevamente, el comando que usamos en VIM para pegar es menos detallado: solo una <strong><code>p</code></strong> (para <code>paste</code> pegar).</li>
+<li><code>&lt;CTRL&gt;-F</code> ya no te permite buscar, en su lugar te permite desplazar tu pantalla una página hacia adelante. Una vez más, el comando que usamos en VIM para la búsqueda está más cerca de tu alcance: <code>/{término-a-buscar}</code>.</li>
+</ul>
+<p>Dependiendo de lo aventurero que seas y tu tolerancia a las molestias, es posible que desees mantener sus teclas como están ahora en lugar de continuar con los cambios realizados por VIM. Si sientes que deseas deshabilitar estas reasignaciones por el momento, puedes usar estas dos configuraciones de VSCodeVIM:</p>
+<ul>
+<li><code>VIM.useCtrlKeys</code> habilita y deshabilita la reasignación de las teclas <code>CTRL</code>. Configúralo en <code>false</code> y las teclas para copiar, pegar, buscar, etc. volverán de nuevo a los valores por defecto de VSCode. Ajústalo a <code>true</code> y VIM se hará cargo.</li>
+<li><code>VIM.handleKeys</code> te brinda un control más granular sobre las asignaciones que puedes habilitar o deshabilitar. Es un diccionario de pares clave/valor, donde la clave es la combinación de teclas que se desea habilitar/deshabilitar y el valor es un indicador booleano que representa si VIM está habilitado para esa combinación de teclas o no. Por ejemplo, usar <code>"&lt;C-d&gt;": true</code> significa que <code>&lt;C-d&gt;</code> es manejado por VIM, mientras que al configurarlo <code>false</code> vuelve a la funcionalidad nativa de VSCode.</li>
+</ul>
+<p>Las listas completas de las claves afectadas por estas reasignaciones se pueden encontrar en el archivo <a href="https://github.com/VSCodeVIM/VIM/blob/master/package.json">package.json</a> de la <a href="https://github.com/VSCodeVIM">extensión VSCodeVIM</a> en la sección de <code>keybindings</code>.</p>
+<h2 id="resumen">RESUMEN</h2>
+<p>Cuando instales VSCodeVIM, tu editor de VSCode se convertirá en un lugar un poco extraño. VIM confía en los modos para hacerlo más efectivo y el modo predeterminado en VIM es el <strong>modo Normal</strong>, un modo en el que no se escribe texto en la pantalla.</p>
+<p><strong>El modo normal</strong> está optimizado para editar texto y navegar por su base de código. A menudo pasamos más tiempo editando y explorando código de lo que lo hacemos al insertarlo desde cero, por lo que es una decisión de diseño ingeniosa. Aún así, puede parecer bastante desalentador al principio, por lo que es útil conocer algunas de las claves que puedes usar para obtener un nivel básico de autonomía:</p>
+<ul>
+<li>Usa <strong><code>hjkl</code></strong> para moverte.</li>
+<li>Usa <strong><code>i</code></strong> para volver al <em>modo Insertar</em> donde puedes actuar como si estuvieras en VSCode vainilla y escribir.</li>
+<li>Usa  <code>&lt;ESC&gt;</code>, <code>&lt;CTRL&gt;-C</code> o <code>&lt;CTRL&gt;-[</code> para volver al <em>modo Normal</em> .</li>
+</ul>
+<p>Con una mejor comprensión de la filosofía de VIM y estas asignaciones de teclas básicas en tu haber, ahora estás listo para continuar desarrollando tus habilidades de VIM y más cerca de ser más increíble en la programación. ¡Adelante!.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../04_moviendote/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../04_moviendote/" class="btn btn-xs btn-link">
+        04 Moviéndote
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../02_instalacion/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../02_instalacion/" class="btn btn-xs btn-link">
+        02 Instalación
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

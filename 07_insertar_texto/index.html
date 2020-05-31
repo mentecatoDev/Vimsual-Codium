@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>07 Insertar texto - Vimsual Codium</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Insertar texto a la vim", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../08_seleccionar_texto/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../08_seleccionar_texto/" class="btn btn-xs btn-link">
+        08 Seleccionar texto
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../06_lenguaje_secreto/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../06_lenguaje_secreto/" class="btn btn-xs btn-link">
+        06 Lenguaje secreto
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="insertar-texto-a-la-vim">Insertar texto a la vim</h1>
+<p>Antes de editar un programa, alguien tendrá que escribirlo y esa persona puede ser tú. En Vim, escribes código en el <strong>modo Insertar</strong>. Has visto un poco del modo Insertar cuando usas el comando <strong><code>c</code></strong>, pero vamos a sumergirnos en este modo un poco más.</p>
+<p>Hay dos comandos principales que te ponen en <em>modo Insertar</em>:</p>
+<ul>
+<li><strong><code>i</code></strong> por <strong>i</strong>nserto (insert)</li>
+<li><strong><code>a</code></strong> por <strong>a</strong>nexo (append)</li>
+</ul>
+<p>El comando <strong><code>i</code></strong> de inserción te pone en modo de inserción <strong>antes</strong> del cursor. Mientras que el comando de anexión <strong><code>a</code></strong> te pone en modo de inserción <strong>después</strong> del cursor. A partir de entonces, estarás en <em>modo Insertar</em> y Vim se comportará como cualquier otro editor (<em>¡ bienvenido de nuevo VSCode!</em> ).</p>
+<p>Al igual que con muchos otros comandos de Vim <strong><code>i</code></strong> y <strong><code>a</code></strong> tienen contrapartida en mayúsculas que son versiones <strong>más fuertes</strong> de inserción y anexión:</p>
+<ul>
+<li><strong><code>I</code></strong> te pone en <em>modo Insertar</em> al comienzo de la línea actual mientras,</li>
+<li><strong><code>A</code></strong> te pone en <em>modo Insertar</em> al final.</li>
+</ul>
+<p><img alt="Insertar comandos de modo" src="../img/vim-insert-mode.jpg" /></p>
+<p>Además de <strong><code>i</code></strong> y <strong><code>a</code></strong>, hay otros tres comandos <strong>súper útiles</strong> para colocarnos en modo Insertar:</p>
+<ol>
+<li><strong><code>o</code></strong> inserta una nueva línea <strong>debajo</strong> de la actual y lo coloca en el modo Insertar (mnemónico: <strong><code>o</code>ne</strong> line below)</li>
+<li><strong><code>O</code></strong> inserta una nueva línea <strong>sobre</strong> la actual y también lo coloca en modo Insertar</li>
+<li><strong><code>gi</code></strong> te pone en modo Insertar en el último lugar donde se dejó el modo Insertar. Esto es genial si abandonas el modo Insertar por error (o no) y quieres volver a donde estabas y continuar escribiendo.</li>
+</ol>
+<p><img alt="Más comandos de modo Insertar" src="../img/vim-more-insert-mode.jpg" /></p>
+<p>Ok. Entonces, digamos que ahora estás en <em>modo Insertar</em>, tecleas y cometes un error (¡ay!). Algo así como un error tipográfico. ¿Vuelves al modo normal, arreglas el error tipográfico y vuelves al modo de inserción? ¡Por favor no!</p>
+<p>Algunas veces. A menudo, es más rápido eliminar las letras o palabras incorrectas y escribir de nuevo. Hay un par de combinaciones de teclas que le permiten hacerlo directamente desde el <em>modo Insertar</em>:</p>
+<ul>
+<li><strong><code>CTRL-h</code></strong> te permite eliminar el <strong>último carácter</strong> que escribiste</li>
+<li><strong><code>CTRL-w</code></strong> te permite eliminar la <strong>última palabra</strong> que escribiste</li>
+<li><strong><code>CTRL-u</code></strong> te permite eliminar la <strong>última línea</strong> que escribiste</li>
+</ul>
+<p>Eventualmente, querrás salir del <em>modo Insertar</em> y hacer otras cosas. Hay tres maneras de hacer esto: <strong><code>ESC</code></strong>, <strong><code>CTRL-[</code></strong> y <strong><code>CTRL-C</code></strong>. De todos éstos, el más fácil de escribir es <strong><code>CTRL-C</code></strong> comenzar usando ese. En capítulos posteriores, aprenderemos cómo puede crear un mapeo personalizado que hará que salir del <em>modo Insertar</em> sea muy fácil.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../08_seleccionar_texto/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../08_seleccionar_texto/" class="btn btn-xs btn-link">
+        08 Seleccionar texto
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../06_lenguaje_secreto/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../06_lenguaje_secreto/" class="btn btn-xs btn-link">
+        06 Lenguaje secreto
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

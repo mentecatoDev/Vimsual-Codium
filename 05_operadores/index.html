@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>05 Operadores - Vimsual Codium</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Edici\u00f3n m\u00e1gica con operadores de VIM", url: "#_top", children: [
+              {title: "Operadores \u00fatiles", url: "#operadores-utiles" },
+              {title: "Sintaxis abreviada de operador", url: "#sintaxis-abreviada-de-operador" },
+              {title: "Tomando la edici\u00f3n de una muesca con objetos de texto", url: "#tomando-la-edicion-de-una-muesca-con-objetos-de-texto" },
+              {title: "Repetir el \u00faltimo cambio con el operador punto", url: "#repetir-el-ultimo-cambio-con-el-operador-punto" },
+              {title: "M\u00e1s comandos de edici\u00f3n de texto abreviado", url: "#mas-comandos-de-edicion-de-texto-abreviado" },
+              {title: "Deshacer y rehacer", url: "#deshacer-y-rehacer" },
+              {title: "Resumen", url: "#resumen" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../06_lenguaje_secreto/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../06_lenguaje_secreto/" class="btn btn-xs btn-link">
+        06 Lenguaje secreto
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../04_moviendote/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../04_moviendote/" class="btn btn-xs btn-link">
+        04 Moviéndote
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="edicion-magica-con-operadores-de-vim">Edición mágica con operadores de VIM</h1>
+<p>El movimiento no es solo para moverse. Se puede usar en combinación con una serie de comandos llamados <strong>operadores</strong> para editar tu código a la velocidad del rayo.</p>
+<p>Puedes usar operadores y movimientos juntos siguiendo cualquiera de estos patrones:</p>
+<pre><code class="text">{operador}{cuenta}{movimiento}
+{cuenta}{operador}{movimiento}
+</code></pre>
+
+<p><img alt="Operadores VIM" src="../img/vim-operators.jpg" /></p>
+<ul>
+<li>El <strong>operador</strong> determina qué acción se desea realizar: eliminar, cambiar, tirar (<em>yank</em>), formatear, etc.</li>
+<li>La <strong>cuenta</strong> te permite multiplicar el efecto de un operador mediante la realización de una acción <em>cuenta</em> número de veces.</li>
+<li>El <strong>movimiento</strong> representa el fragmento de texto al que aplicar la acción definida por el operador.</li>
+</ul>
+<p>Por ejemplo, la combinación <code>d2w</code> te permite <strong>eliminar dos palabras</strong>.</p>
+<p><img alt="Un ejemplo de operador d2w borra dos palabras" src="../img/vim-operators-d2w.jpg" /></p>
+<p><strong><code>d</code></strong> corresponde al operador de <strong>eliminación</strong>. Como <strong><code>d</code></strong> es un operador, puede seguir la fórmula <code>{operator}{count}{motion}</code> y combinarla con todos los movimientos que has aprendido hasta ahora:</p>
+<ul>
+<li>Usa <strong><code>d5j</code></strong> para eliminar 5 líneas hacia abajo</li>
+<li>Escribe <strong><code>df'</code></strong> para eliminar todo en la línea actual del cursor hasta la primera aparición del carácter <strong><code>'</code></strong> (incluido el propio carácter)</li>
+<li>O escribe <strong><code>dt'</code></strong> para hacer como el ejemplo anterior pero excluyendo el carácter (hasta o justo antes del carácter <strong><code>'</code></strong>)</li>
+<li>Usa <strong><code>d/hello</code></strong> para eliminar todo hasta la primera aparición de <strong><code>hello</code></strong></li>
+<li>Escribe <strong><code>ggdG</code></strong> para borrar un documento completo</li>
+</ul>
+<h2 id="operadores-utiles">Operadores útiles</h2>
+<p><img alt="Algunos operadores útiles de VIM" src="../img/vim-operators-commands.jpg" /></p>
+<p>Además de <strong><code>d</code></strong>, hay un puñado más de operadores útiles:</p>
+<ul>
+<li><strong><code>c</code></strong> (<strong>c</strong>hange): <em>Change</em> elimina un trozo de texto y luego establece el <em>modo de inserción</em> para que se pueda seguir escribiendo, cambiando el texto original por otra cosa. El operador de cambio es como los comandos <strong><code>d</code></strong> e <strong><code>i</code></strong> combinados en uno. Esta dualidad lo convierte en un operador más útil.</li>
+<li><strong><code>y</code></strong> (<strong>y</strong>ank): copiar en la jerga de VIM</li>
+<li><strong><code>p</code></strong> (<strong>p</strong>ut/**puaste): pegar en la jerga de VIM</li>
+<li><strong><code>g~</code></strong> (mayúscula): cambia las letras de minúsculas a mayúsculas y viceversa. Alternativamente, usa <strong><code>gu</code></strong> para convertir algo en minúsculas y <strong><code>gU</code></strong> para convertir algo en mayúsculas</li>
+<li><strong><code>&gt;</code></strong> (desplazamiento a la derecha): agrega sangría</li>
+<li><strong><code>&lt;</code></strong> (desplazamiento a la izquierda): elimina la sangría</li>
+<li><strong><code>=</code></strong> (código de formato): código de formatos</li>
+</ul>
+<p>Puedes usar estos operadores de la misma manera que usaste <strong>delete</strong> para:</p>
+<ul>
+<li><strong><code>c/hello</code></strong> cambia todo hasta la primera aparición de <code>hello</code>.</li>
+<li><strong><code>ggyG</code></strong> copia un documento completo</li>
+<li><strong><code>gUw</code></strong> capitaliza una palabra</li>
+</ul>
+<h2 id="sintaxis-abreviada-de-operador">Sintaxis abreviada de operador</h2>
+<p>Todos estos operadores proporcionan una sintaxis abreviada adicional destinada a ahorrarte mecanografía y aumentar tu velocidad con tareas de edición comunes:</p>
+<ul>
+<li><strong>Duplica un operador para que funcione en una línea completa</strong>: <strong><code>dd</code></strong> elimina una línea completa, <strong><code>cc</code></strong> cambia una línea completa, etc.</li>
+<li><strong>Capitaliza un operador para que realice una versión más fuerte (o alternativa) de su comportamiento predeterminado</strong> : <strong><code>D</code></strong> elimina del cursor al final de la línea, <strong><code>C</code></strong> cambia al final de una línea, <strong><code>Y</code></strong> como <strong><code>yy</code></strong> copia una línea completa, <strong><code>P</code></strong> pega algo antes del cursor, etc.</li>
+</ul>
+<blockquote>
+<p>¿Notaste cómo las teclas de comando tienen mucho sentido?</p>
+<p>Los operadores, movimientos y otros comandos en VIM son generalmente fáciles de aprender porque tienen sentido y son fáciles de adivinar. ¿Quieres cambiar algo? Es posible que desees utilizar el <em>c</em> (operador <strong>c</strong>ambiar). ¿Quieres moverte palabra por palabra? Prueba <em>w</em>(<strong>w</strong>ord). ¿Quieres borrar algo? Prueba el operador <em>d</em> (<strong>d</strong>elete) y así sucesivamente.</p>
+</blockquote>
+<p>Los operadores realmente brillan cuando los combinamos con una clase especial de movimientos llamados <strong>objetos de texto</strong>.</p>
+<h2 id="tomando-la-edicion-de-una-muesca-con-objetos-de-texto">Tomando la edición de una muesca con objetos de texto</h2>
+<p>Los objetos de texto son fragmentos de texto estructurados o, si lo deseas, las entidades de un modelo de dominio de documentos. ¿De qué está compuesto un documento? Palabras, oraciones, texto citado, párrafos, bloques, etiquetas (HTML), etc. <strong>Estos son objetos de texto.</strong></p>
+<p>La forma de especificar un objeto de texto dentro de un comando es combinando la letra <strong><code>a</code></strong> (<strong>un</strong> objeto de texto más espacios en blanco) o <strong><code>i</code></strong> (objeto <strong>interno</strong> sin espacios en blanco) con un carácter que representa un objeto de texto en sí:</p>
+<p><img alt="VIM Text Objects" src="../img/vim-operators-d2w.jpg" /></p>
+<pre><code class="text">{operator}{a|i}{text-object}
+</code></pre>
+
+<p>Los objetos de texto incorporados son:</p>
+<p><img alt="Comandos de objetos de texto de VIM" src="../img/vim-text-objects-commands.jpg" /></p>
+<ul>
+<li><strong><code>w</code></strong> para <strong>w</strong>ord</li>
+<li><strong><code>s</code></strong> para <strong>s</strong>entence</li>
+<li><strong><code>'</code></strong>, <strong><code>"</code></strong>, <strong>```</strong> para las cotizaciones</li>
+<li><strong><code>p</code></strong> para <strong>p</strong>aragraph</li>
+<li><strong><code>b</code></strong> (o <strong><code>(</code></strong>, <strong><code>)</code></strong>) para el bloque rodeado por <strong><code>()</code>,</strong></li>
+<li><strong><code>B</code></strong> (o <strong><code>{</code></strong>, <strong><code>}</code></strong>) para el bloque rodeado por <strong><code>{}</code></strong></li>
+<li><strong><code>&lt;</code></strong>, <strong><code>&gt;</code></strong> por un bloque rodeado de<strong><code>&lt;&gt;</code></strong></li>
+<li><strong><code>[</code></strong>, <strong><code>]</code></strong> por un bloque rodeado de<strong><code>[]</code></strong></li>
+<li><strong><code>t</code></strong> para etiqueta.</li>
+</ul>
+<p>Entonces, para eliminar diferentes fragmentos de texto, puedes usar cualquiera de los siguientes comandos:</p>
+<ul>
+<li><strong><code>daw</code></strong> a <strong>d</strong>elete <strong>un</strong> <strong>w</strong>ord (más espacios en blanco finales)</li>
+<li><strong><code>ciw</code></strong> a <strong>c</strong>hange <strong>i</strong>nner <strong>w</strong>ord</li>
+<li><strong><code>das</code></strong> a <strong>d</strong>elete <strong>un</strong> <strong>s</strong>entence (<strong><code>dis</code></strong> para eliminar frase interno)</li>
+<li><strong><code>da"</code></strong> a algo de eliminación entre comillas dobles incluyendo las cotizaciones a sí mismos (<strong><code>di"</code></strong> elimina sólo el contenido <strong>i</strong>Nside las cotizaciones de repuestos y las comillas)</li>
+<li><strong><code>ci"</code></strong> cambiar algo entre comillas dobles</li>
+<li><strong><code>dap</code></strong> para eliminar un párrafo</li>
+<li><strong><code>dab</code></strong> <strong><code>da(</code></strong> o <strong><code>da)</code></strong> para eliminar un bloque rodeado de <strong><code>(</code></strong></li>
+<li><strong><code>daB</code></strong> <strong><code>da{</code></strong> o <strong><code>da}</code></strong> para eliminar un bloque rodeado de <strong><code>{</code></strong></li>
+<li><strong><code>dat</code></strong> eliminar una etiqueta HTML</li>
+<li><strong><code>cit</code></strong> para cambiar el contenido de una etiqueta HTML</li>
+</ul>
+<p><strong>Combinar objetos de texto con operadores es extremadamente poderoso</strong> y se encontrará confiando en ellos con mucha frecuencia. Cosas como <code>cit</code>, <code>ci"</code>y <code>cib</code> son simplemente geniales.</p>
+<p>Digamos que queremos cambiar el contenido de esta cadena a continuación por otra cosa:</p>
+<pre><code class="javascript">const salute = 'I salute you oh Mighty Warrior'
+</code></pre>
+
+<p>Escribes <code>ci'Hi!</code> y se convierte en:</p>
+<pre><code class="javascript">const salute = 'Hi!'
+</code></pre>
+
+<p>Así. No necesitas agarrar el ratón, seleccionar el texto y luego escribir otra cosa. Escribe tres letras y ¡Boom! Ya terminaste.</p>
+<blockquote>
+<p>¿Notaste cómo se colocan la mayoría de las teclas vim cerca de tus dedos?</p>
+<p>El hecho de que VIM tenga modos permite reutilizar las teclas cerca de la fila de inicio en cada modo separado. Esta decisión de diseño minimiza la necesidad de combinaciones de teclas lentas y retorcidas, y aumenta su velocidad y la longevidad de sus dedos y muñecas. <strong>¡Esto es asombroso!</strong></p>
+</blockquote>
+<h2 id="repetir-el-ultimo-cambio-con-el-operador-punto">Repetir el último cambio con el operador punto</h2>
+<p>VIM tiene otro truco en la trastienda para ti destinado a guardar más pulsaciones de teclas: el comando mágico <strong><code>.</code></strong> (punto).</p>
+<p><img alt="El comando VIM dot repite el último cambio" src="../img/vim-dot-command.jpg" /></p>
+<p><strong>El comando <code>.</code> te permite repetir el último cambio que realizaste</strong>. Imagina que ejecutas <strong><code>dd</code></strong> para eliminar una línea de código. Y ahora digamos que te has calentado y quieres eliminar aún más código. Eliminar el código es bueno, cuanto menos código tengas, menos código necesitas mantener. Así que, eliminemos otra línea de código. ¿Cómo harías eso? Podrías volver a escribir <strong><code>dd</code></strong> pero, aún mejor, podrías usar el comando <strong><code>.</code></strong> que es solo una pulsación de tecla.</p>
+<p>OK. Guarda una pulsación de tecla. Y qué. (Mucho público veo aquí). Bueno, puedes usar el comando <strong><code>.</code></strong> para repetir <strong>cualquier tipo de cambio</strong>, no solo un solo comando abreviado como <code>dd</code>. Por ejemplo, podría cambiar una palabra por <code>Awesome</code> así <code>cawAwesome</code>, y luego repetir todo el comando con todas esas pulsaciones de teclas simplemente escribiendo un solo punto. ¡Piensa en las posibilidades!</p>
+<p>El <strong><code>.</code></strong> comando se vuelve aún más útil si tienes la costumbre de usar objetos de texto. Los objetos de texto son más confiables que otros movimientos porque no importa tanto dónde está ubicado el cursor. Por lo tanto, los comandos con objetos de texto son mucho más repetibles y, por lo tanto, funcionan maravillosamente en conjunto con el comando <strong><code>.</code></strong>.</p>
+<p>El comando <strong><code>.</code></strong> funciona muy bien en combinación con los comandos de búsqueda de repetición ( <strong><code>;</code></strong>, <strong><code>,</code></strong>, <strong><code>n</code></strong> o <strong><code>N</code></strong>). Imagina que deseas eliminar todas las apariciones de <code>cucumber</code>. Un posible enfoque sería buscar el pepino <code>/cucumber</code>, eliminarlo con <strong><code>daw</code></strong> y, a partir de ese momento, usar <strong><code>n</code></strong> para ir a la siguiente y <strong><code>.</code></strong> para eliminarlo. ¡Dos pulsaciones de teclas! De nuevo piensa en las posibilidades.</p>
+<h2 id="mas-comandos-de-edicion-de-texto-abreviado">Más comandos de edición de texto abreviado</h2>
+<p>Además de los operadores que aprendiste en este capítulo, VIM ofrece una serie de atajos para operar con caracteres individuales que pueden ser útiles en ocasiones. Son:</p>
+<ul>
+<li><strong><code>x</code></strong> es equivalente <strong><code>dl</code></strong> y elimina el carácter debajo del cursor</li>
+<li><strong><code>X</code></strong> es equivalente <strong><code>dh</code></strong> y elimina el carácter antes del cursor</li>
+<li><strong><code>s</code></strong> es equivalente a <strong><code>ch</code></strong>, elimina el carácter debajo del cursor y lo pone en <em>modo Insertar</em></li>
+<li><strong><code>~</code></strong> para cambiar a mayúsculas/minúsculas un carácter</li>
+</ul>
+<p>Como de costumbre, todo el soporte anterior cuenta para operar en varios caracteres a la vez.</p>
+<h2 id="deshacer-y-rehacer">Deshacer y rehacer</h2>
+<p>Tarde o temprano llegará un momento en que cometerás un error. ¡Admítelo! No eres perfecto. Nadie lo es. Y eso está bien. Sin embargo, no debes preocuparte, porque VIM te respalda:</p>
+<ul>
+<li>Escribe <strong><code>u</code></strong> y desharás tu último cambio,</li>
+<li>Escribe <strong><code>CTRL-R</code></strong> y lo reharás,</li>
+</ul>
+<p><em>Pheeewww ...</em></p>
+<h2 id="resumen">Resumen</h2>
+<p><strong>Los movimientos no son solo para moverse. Utilizados en combinación con operadores, te permiten realizar operaciones en texto con facilidad y una velocidad sorprendente</strong> . Aplica un operador en un movimiento utilizando la melodía clave <code>{operator}{motion}</code>.</p>
+<p>Algunos de los operadores más útiles y comunes son: <strong><code>d</code></strong> para <strong>d</strong>elete, <strong><code>c</code></strong> para <strong>c</strong>hange, <strong><code>y</code></strong> para <strong>y</strong>ank (copiar) y <strong><code>p</code></strong> para <strong>p</strong>ut (pegar). Como puedes apreciar de estos operadores y los movimientos que has aprendido hasta ahora, los comandos de VIM son generalmente fáciles de aprender porque tienen sentido y son fáciles de adivinar.</p>
+<p><strong>Cuando se duplica un operador, se le hace operar sobre una línea</strong> . Por ejemplo, puedes usar <strong><code>dd</code></strong> para eliminar una línea completa. De manera similar, <strong>cuando se usa un comando en mayúsculas, se ejecuta una versión más fuerte (o alternativa) del comando original</strong>. Por ejemplo, <strong><code>D</code></strong> elimina del cursor al final de una línea. Esto es realmente útil y pueden ahorrarte mucho tiempo. Aprende a usarlos en lugar de sus alternativas más verbales.</p>
+<p><strong>Las cuentas también funcionan con operadores</strong>. Se puede multiplicar el efecto de un movimiento combinado de operación, utilizando una cuenta de la siguiente manera: <code>{operator}{count}{motion}</code>.</p>
+<p><strong>Los objetos de texto tienen movimientos especiales que describen las partes de un documento: palabras, oraciones, párrafos y demás</strong>. Son increíblemente útiles en combinación con los operadores de VIM.</p>
+<p><strong>Usando operadores con objetos de texto se puede ser muy preciso y ordenarle a VIM que elimine una palabra o cambie el interior de una cadena o bloque de código</strong> .</p>
+<p>Los objetos de texto ofrecen dos variantes: <strong><code>a</code></strong> (piensa en <strong>a</strong> como <strong>a</strong>ll) e <strong><code>i</code></strong> (piensa en <strong>i</strong>nner) que te permite operar en un objeto de texto más el espacio en blanco circundante o solo en las partes internas de un objeto de texto, respectivamente. Por ejemplo, el uso <strong><code>da"</code></strong> elimina una cita completa que incluye espacios en blanco al final, usando <strong><code>di"</code></strong> solo elimina lo que esté rodeado de comillas.</p>
+<p><strong>El comando punto te <code>.</code> permite repetir el último cambio</strong> y, como tal, es uno de los comandos repetidores más útiles. <strong>Las operaciones en objetos de texto son excelentes candidatos para el operador de punto porque son más repetibles</strong> .</p>
+<p><strong>Una excelente manera de aprovechar el comando punto es usarlo en combinación con búsquedas</strong> . Cuando lo hagas, puedes aplicar cambios de búsquedas sucesivas con solo dos pulsaciones de teclas: <strong><code>n</code></strong> o <strong><code>;</code></strong> para encontrar la siguiente coincidencia y <strong><code>.</code></strong> repetir el último cambio.</p>
+<p>A veces cometerás un error. Cuando eso sucede, <strong>puedes deshacer el último cambio con el comando <code>u</code></strong> . Si cambias de opinión o deshaces demasiado, escribe <code>CTRL-R</code> para <strong>r</strong>edo.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../06_lenguaje_secreto/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../06_lenguaje_secreto/" class="btn btn-xs btn-link">
+        06 Lenguaje secreto
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../04_moviendote/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../04_moviendote/" class="btn btn-xs btn-link">
+        04 Moviéndote
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

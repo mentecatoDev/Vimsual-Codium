@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>04 Moviéndote - Vimsual Codium</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Movi\u00e9ndote incre\u00edblemente r\u00e1pido con los movimientos CORE VIM", url: "#_top", children: [
+              {title: "Moverte horizontalmente palabra por palabra", url: "#moverte-horizontalmente-palabra-por-palabra" },
+              {title: "Aprende los comandos con la ayuda de mnem\u00f3nicos", url: "#aprende-los-comandos-con-la-ayuda-de-mnemonicos" },
+              {title: "PALABRAS y palabras", url: "#palabras-y-palabras" },
+              {title: "Moverse a un car\u00e1cter espec\u00edfico", url: "#moverse-a-un-caracter-especifico" },
+              {title: "Moverte horizontalmente a los extremos", url: "#moverte-horizontalmente-a-los-extremos" },
+              {title: "Movi\u00e9ndote verticalmente", url: "#moviendote-verticalmente" },
+              {title: "Movimientos verticales de alta precisi\u00f3n con patr\u00f3n de b\u00fasqueda", url: "#movimientos-verticales-de-alta-precision-con-patron-de-busqueda" },
+              {title: "Moverse m\u00e1s r\u00e1pido con cuentas", url: "#moverse-mas-rapido-con-cuentas" },
+              {title: "N\u00fameros de l\u00ednea relativos", url: "#numeros-de-linea-relativos" },
+              {title: "Movi\u00e9ndote sem\u00e1nticamente", url: "#moviendote-semanticamente" },
+              {title: "Algunos movimientos m\u00e1s ingeniosos", url: "#algunos-movimientos-mas-ingeniosos" },
+              {title: "Resumen", url: "#resumen" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../05_operadores/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../05_operadores/" class="btn btn-xs btn-link">
+        05 Operadores
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../03_primeros_pasos/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../03_primeros_pasos/" class="btn btn-xs btn-link">
+        03 Primeros pasos
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="moviendote-increiblemente-rapido-con-los-movimientos-core-vim">Moviéndote increíblemente rápido con los movimientos CORE VIM</h1>
+<p><strong>Con movimiento hablamos de cómo te desplazas a través del texto en VIM</strong>. Son comandos que, cuando se escriben, mueven el cursor con gran velocidad y precisión. Hay muchos de ellos, y cada uno es más adecuado para diferentes tipos y longitudes de movimiento. Funcionan muy bien en conjunto con las funciones nativas <em>Ir a</em> de Visual Code Code como <em>Ir a archivo</em> e <em>Ir a símbolo</em>.</p>
+<p>Aquí encontrarás una lista condensada de los más útiles, y cuándo y cómo usarlos.</p>
+<h2 id="moverte-horizontalmente-palabra-por-palabra">Moverte horizontalmente palabra por palabra</h2>
+<p><strong>Los movimientos de palabras</strong> te permiten saltar de una palabra a otra en cualquier dirección (de izquierda a derecha o de derecha a izquierda). Como tal, te permiten moverte más rápido que los movimientos horizontales básicos <strong><code>h</code></strong> y <strong><code>l</code></strong>.</p>
+<p>Puedes utilizar <strong><code>w</code></strong> (comando <strong>w</strong>ord) para saltar al comienzo de la siguiente palabra de este modo:</p>
+<p><img alt="vim-motions-word" src="../img/vim-motions-word.jpg" /></p>
+<p>Del mismo modo, puedes:</p>
+<ul>
+<li>Usar <strong><code>b</code></strong> (<strong>b</strong>ack) para saltar al principio de una palabra hacia atrás.</li>
+<li>Usar <strong><code>e</code></strong> (<strong>e</strong>nd) para saltar al final de una palabra.</li>
+<li>Usar <strong><code>ge</code></strong> (<strong>g</strong>o <strong>e</strong>nd) para saltar al final de una palabra hacia atrás.</li>
+</ul>
+<h2 id="aprende-los-comandos-con-la-ayuda-de-mnemonicos">Aprende los comandos con la ayuda de mnemónicos</h2>
+<p>VIM tiene una enorme cantidad de comandos. Con el tiempo, cuando se convierta en un usuario experimentado de VIM, los comandos se convertirán en algo natural, reflexivo y automático. Sin embargo, al principio, tendrás que aprenderlos uno por uno.</p>
+<p>Una excelente manera de aprender los comandos de VIM es mediante el uso de mnemónicos como asociar una letra a una palabra que sea más fácil de recordar. Por ejemplo, puedes recordar que <code>w</code> permite moverse de una palabra a otra al asociarlo con una <strong>word</strong>, o que <strong>b</strong> permite mover una palabra hacia atrás al asociarlo con <strong>back</strong>.</p>
+<p>Siguiendo esta técnica, descubrirás que puedes aprender y recordar muchos comandos con poco esfuerzo.</p>
+<h2 id="palabras-y-palabras">PALABRAS y palabras</h2>
+<p>Por lo tanto <strong><code>w</code></strong>, <strong><code>b</code></strong>, <strong><code>e</code></strong> y <strong><code>ge</code></strong> te permiten moverte palabra por palabra en VIM. Pero, ¿qué es exactamente una palabra? Una palabra en VIM es:</p>
+<ol>
+<li>Una secuencia de letras, dígitos y números.</li>
+<li>Una secuencia de otros caracteres no en blanco.</li>
+</ol>
+<pre><code class="text">these are 4 words
+and these below too
+,,, ..... ((((( ,.(
+</code></pre>
+
+<p>Pero VIM también tiene el concepto de tipos especiales de palabras (con letras, cifras y números) que también incluyen caracteres especiales como <strong><code>.</code></strong>, <strong><code>(</code></strong>, <strong><code>{</code></strong>, etc. Se llaman PALABRAS en la jerga de VIM:</p>
+<p><img alt="palabra VS PALABRA" src="../img/vim-motions-word-vs-WORD.jpg" /></p>
+<p>Las PALABRAS son particularmente útiles para nosotros los programadores porque el código a menudo tiene muchas de ellas:</p>
+<pre><code class="text">this is a WORD: Iam_A_WORD(WORD)
+this function call sum(2,3) is also a WORD
+this array [1,2,3,4,5] is a WORD as well
+</code></pre>
+
+<p>Si deseas moverte PALABRA por PALABRA puedes utilizar los equivalentes en mayúsculas de los movimientos descritos anteriormente (<strong><code>W</code></strong>, <strong><code>B</code></strong>, <strong><code>E</code></strong>, <strong><code>gE</code></strong>).</p>
+<p>En general, los <strong>movimientos de palabras permiten cambios más precisos, mientras que los movimientos de PALABRAS permiten movimientos más rápidos</strong>:</p>
+<pre><code class="text">wwww ==&gt; v   v v   v   v
+         word. are two words
+         word. is one WORD
+WWW  ==&gt; ^     ^  ^   ^
+</code></pre>
+
+<h2 id="moverse-a-un-caracter-especifico">Moverse a un carácter específico</h2>
+<p><strong>El movimiento a caracteres con "find"</strong> te permite moverte con una <strong>alta precisión</strong> de forma horizontal y rápidamente:</p>
+<ul>
+<li>Usa <strong><code>f{character}</code></strong> (<strong>f</strong>ind) para pasar a la siguiente aparición de un carácter en una línea. Por ejemplo, <strong><code>f"</code></strong> te envía a la próxima aparición de una comilla doble.</li>
+<li>Si tu objetivo está antes del cursor, puedes usar <strong><code>F{character}</code></strong> para encontrar la aparición previa de un carácter. </li>
+</ul>
+<p><img alt="" src="https://www.barbarianmeetscoding.com/images/vim-motions-find.jpg" /></p>
+<p>Podemos ver claramente cómo <strong><code>f</code></strong> es más rápido y preciso que usar movimientos de palabras lanzando uno contra el otro en un ejemplo:</p>
+<pre><code class="text">f(   ==&gt; v                        v
+         const fireball = function(target){
+wwww ==&gt; ^     ^        ^ ^       ^
+</code></pre>
+
+<p>Además de <strong><code>f</code></strong> VIM también ofrece el comando <strong><code>t</code></strong> (un<strong>t</strong>il):</p>
+<ul>
+<li>Utiliza <strong><code>t{character}</code></strong> para mover el cursor justo antes de la próxima aparición de un caracter (pensar en <code>t{character}</code> como forma de mover el cursor hasta (un<strong>t</strong>il) ese carácter).</li>
+<li>De nuevo, se puede usar <strong><code>T{character}</code></strong> para hacer lo mismo <code>t{character}</code> pero hacia atrás.</li>
+</ul>
+<p>Si la diferencia entre los comandos <strong><code>f</code></strong> y <strong><code>t</code></strong> aún no está del todo clara, aquí hay un ejemplo que compara a ambos:</p>
+<pre><code class="text">t(   ==&gt; v                       v
+         const fireball = function(target){
+f(   ==&gt; ^                        ^
+</code></pre>
+
+<p><strong><code>t</code></strong> es realmente útil cuando combina movimientos con operadores para realizar cambios de texto como pronto descubrirás (por ejemplo, se podría eliminar todo hasta <code>(</code> y cambiarlo por otra cosa).</p>
+<p>Después de usar <strong><code>f{character}</code></strong>, puedes escribir <strong><code>;</code></strong> para ir a la siguiente aparición del carácter o <strong><code>,</code></strong> para ir a la anterior. <strong>Se pueden ver los comandos <code>;</code> y <code>,</code> como para repetir la última búsqueda de caracteres</strong>. Esto es bueno porque te evita escribir la misma búsqueda una y otra vez:</p>
+<pre><code class="text">fdfdfd ==&gt; v   v               v        v
+           let damage = weapon.damage * d20();
+           let damage = weapon.damage * d20();
+fd;;   ==&gt; v   v               v        v
+</code></pre>
+
+<blockquote>
+<p><strong>Notas, melodías y acordes</strong></p>
+<p>VIM es bastante especial. Si has utilizado otros editores, probablemente estés acostumbrado a escribir acordes de teclas. Es decir, escribir una combinación de teclas al mismo tiempo. Por ejemplo, <code>CTRL-C</code> copiar y <code>CTRL-V</code> pegar. Aunque VIM no es ajeno a los acordes, se basa aún más en las melodías de las teclas.</p>
+<p><strong>Una melodía</strong> es una serie de notas que se tocan una tras otra. Si piensas en las teclas como notas, entonces las melodías de teclas son teclas que se presionan una tras otra en rápida sucesión. Entonces, cuando lees que necesitas escribir <code>f{character}</code>para encontrar un carácter en una línea, significa que primero escribes <code>f</code> y luego escribes el carácter <code>{character}</code>. Estas dos teclas, por lo tanto, se tocan como una melodía.</p>
+<p>Usar melodías de teclas es la forma más común con la que interactúas con VIM. Y, aunque no es familiar ni extraño, es muy conveniente porque controlar el editor de repente parece que solo consiste en escribir texto. También es maravilloso para la salud de tus muñecas porque ya no necesitas confiar en combinaciones de teclas complejas y antinaturales que tensan tus pobres articulaciones.</p>
+</blockquote>
+<h2 id="moverte-horizontalmente-a-los-extremos">Moverte horizontalmente a los extremos</h2>
+<p>Para <strong>moverte horizontalmente a los extremos,</strong> usa:</p>
+<ul>
+<li><strong><code>0</code></strong>: Se mueve al <strong>primer carácter de una línea</strong></li>
+<li><strong><code>^</code></strong>: Se mueve al <strong>primer carácter no en blanco de una línea</strong></li>
+<li><strong><code>$</code></strong>: Se mueve al <strong>final de una línea</strong></li>
+<li><strong><code>g_</code></strong>: Se mueve al último carácter <strong>no en blanco al final de una línea</strong></li>
+</ul>
+<h2 id="moviendote-verticalmente">Moviéndote verticalmente</h2>
+<p>A partir de <strong><code>k</code></strong> y <strong><code>j</code>,</strong> pasamos a una <strong>forma más rápida de maniobrar verticalmente</strong> con:</p>
+<ul>
+<li><strong><code>}</code></strong> salta párrafos enteros <strong>hacia abajo</strong></li>
+<li><strong><code>{</code></strong> de manera similar pero <strong>hacia arriba</strong></li>
+<li><strong><code>CTRL-d</code></strong> te permite <strong>bajar media página</strong> desplazándose por la página</li>
+<li><strong><code>CTRL-u</code></strong> te permite <strong>subir media página</strong> también desplazándote</li>
+</ul>
+<p>Ninguno de estos están dentro de mis favoritos, pero por el momento lo estarán. En el capítulo de asignaciones personalizadas se aprenderá cómo crear una combinación de teclas personalizada para un mejor movimiento vertical de rango medio.</p>
+<h2 id="movimientos-verticales-de-alta-precision-con-patron-de-busqueda">Movimientos verticales de alta precisión con patrón de búsqueda</h2>
+<p>Para <strong>moverse verticalmente aún más rápido</strong> cuando tiene un objetivo en mente, tu mejor opción es <strong>buscar</strong> ese objetivo con los comandos <strong><code>/{pattern}</code></strong> y <strong><code>?{pattern}</code></strong>:</p>
+<ul>
+<li>Usa <strong><code>/{pattern}</code></strong> para <strong>buscar hacia adelante</strong></li>
+<li>Usa <strong><code>?{pattern}</code></strong> para <strong>buscar hacia atrás</strong></li>
+</ul>
+<p>Donde el fragmento <code>{pattern}</code> a menudo será una cadena literal (el nombre de un método, clase o variable) pero también puede ser una expresión regular.</p>
+<p>Si estás cerca de tu computadora, intenta escribir un comando de búsqueda ahora mismo. Descubrirás que, a medida que escribes un comando de búsqueda, se resalta cualquier fragmento de texto dentro de un archivo que coincida con tu patrón. A medida que continúes escribiendo el patrón, las áreas resaltadas se actualizarán y reflejarán las nuevas coincidencias. Cuando encuentres lo que estás buscando, escribe <strong>&lt; Enter &gt;</strong> y tu cursor saltará a la primera coincidencia en el documento. Allí puedes realizar alguna edición si quieres y luego usar <strong><code>n</code></strong> para saltar a la siguiente ocurrencia (o <strong><code>N</code></strong> a la anterior). <strong>Puedes pensar en <code>n</code> como en repetir una búsqueda</strong>.</p>
+<blockquote>
+<p><strong>Habilitar la búsqueda resaltada</strong></p>
+<p>La búsqueda resaltada no está habilitada de forma predeterminada en VSCodeVIM. Para remediar eso, ve a <em>Preferencias &gt; Configuración</em> y activa la opción <em>VIM: Hlsearch</em> (o, alternativamente, usa <code>vim.hlsearch</code> en la versión json de la configuración).</p>
+</blockquote>
+<p>A VIM le encanta ahorrar tiempo: escriba <strong><code>/</code></strong> o <strong><code>?</code></strong> en cualquier momento para ejecutar la última búsqueda (hacia adelante o hacia atrás). O usa <strong><code>*</code></strong> para buscar la palabra debajo del cursor (<strong><code>#</code></strong> para hacer lo mismo pero hacia atrás).</p>
+<h2 id="moverse-mas-rapido-con-cuentas">Moverse más rápido con cuentas</h2>
+<p><strong>Las cuentas son números que te permiten multiplicar el efecto de un comando</strong>. Puedes usarlos como prefijo de cualquier comando con un conteo como este:</p>
+<pre><code class="text">{count}{command}
+</code></pre>
+
+<p>Por ejemplo:</p>
+<ul>
+<li><strong><code>2w</code></strong> nos permite mover el cursor 2 palabras hacia adelante.</li>
+<li><strong><code>5j</code></strong> cambia la posición del cursor a 5 líneas a continuación.</li>
+<li><strong><code>3;</code></strong> te permite pasar a la siguiente tercera aparición de un carácter (tras un <strong><code>f</code></strong> ó <strong><code>t</code></strong> previo)</li>
+<li><strong><code>2/baby</code></strong> te envía volando a la segunda aparición de <code>baby</code>.</li>
+</ul>
+<p>En general, se usa <strong><code>{count}{motion}</code></strong> para multiplicar <strong><code>{count}</code></strong> veces el movimiento.</p>
+<h2 id="numeros-de-linea-relativos">Números de línea relativos</h2>
+<p>Una excelente manera de moverse verticalmente dentro de VIM es mediante el uso de conteos en combinación con los movimientos <code>j</code> y <code>k</code>. Pero a veces puede ser difícil saber cuántas líneas necesitas saltar para llegar a la posición deseada. Ahí es donde los <strong>números de línea relativos</strong> pueden ser bastante útiles.</p>
+<p>Los números de línea relativos muestran los números de línea en relación con tu línea actual: si la línea actual es donde descansa el cursor, la línea de abajo tendría la línea número 1, la siguiente línea número 2, y así sucesivamente. Usando números de línea relativos, es muy sencillo ver cuántas líneas necesitas saltar para llegar a donde quieres ir. Solo echa un vistazo al número de línea relativo y úsalo como un recuento.</p>
+<blockquote>
+<p>Puedes habilitar los números de línea relativos en tu configuración de VSCode yendo a <em>Preferencias &gt; Configuración</em>, buscando la configuración de <em>line numbers</em> y configurándola como <strong>relative</strong>.</p>
+</blockquote>
+<h2 id="moviendote-semanticamente">Moviéndote semánticamente</h2>
+<p>Además de los movimientos anteriores, que realmente no tienen en cuenta el significado del código, VIM ofrece enlaces adicionales que tienen en cuenta su semántica:</p>
+<ul>
+<li>Usa <strong><code>gd</code></strong> para saltar a la definición de lo que esté debajo del cursor.</li>
+<li>Usa <strong><code>gf</code></strong> para saltar a un archivo en una importación.</li>
+</ul>
+<h2 id="algunos-movimientos-mas-ingeniosos">Algunos movimientos más ingeniosos</h2>
+<p>Estos son más movimientos que pueden ser útiles de vez en cuando:</p>
+<ul>
+<li>Escribe <strong><code>gg</code></strong> para ir al principio del archivo.</li>
+<li>Usa <strong><code>{line}gg</code></strong> para ir a una línea específica.</li>
+<li>Usa <strong><code>G</code></strong> para ir al final del archivo.</li>
+<li>Escribe <strong><code>%</code></strong> para saltar entre los pares de apertura y cierre de los símbolos <strong><code>({[]})</code></strong>.</li>
+</ul>
+<h2 id="resumen">Resumen</h2>
+<p><strong>Los movimientos son comandos que te permiten moverte en VIM con alta velocidad y precisión</strong>. Están compuestos por una o más teclas escritas como <strong>melodías</strong>. Te permiten realizar diferentes tipos de movimientos con diferentes longitudes y grados de precisión.</p>
+<p>Los más básicos <strong><code>hjkl</code></strong> son excelentes para pequeñas correcciones. Luego tenemos <strong>movimientos de palabras y párrafos</strong> (<strong><code>w</code></strong>, <strong><code>{</code></strong>) que son buenos para navegar por el código más rápido. Después de eso, tenemos <strong>movimientos de búsqueda de alta precisión</strong> (<strong><code>f</code></strong>, <strong><code>/</code></strong>) que nos permiten teletransportarnos rápidamente a un carácter o patrón de búsqueda.</p>
+<p>Los movimientos de búsqueda de caracteres y búsqueda tienen <strong>repetidores</strong> (<strong><code>n</code></strong>, <strong><code>;</code></strong>) que nos permiten repetir la última búsqueda escribiendo solo un carácter. Podemos usarlos para saltar de una coincidencia a otra en cualquier dirección y muy rápidamente. El concepto de repetidores es un tema común en VIM y aprenderás muchos de ellos en adelante. <strong>Entrénate para confiar en los repetidores, y serás más efectivo</strong>.</p>
+<p><strong>Puedes combinar conteos con movimientos para un mayor efecto</strong>. Nuestros cerebros son lentos para contar, por lo que debes <strong>limitar el uso de conteos solo a saltos cortos</strong>. Al usar conteos con movimientos verticales, es bueno habilitar <strong>números relativos</strong> porque te dan una referencia clara a tu objetivo. <strong>Considera habilitar números relativos si aún no lo has hecho</strong>.</p>
+<p>Ahora pasemos a otro bloque fundamental en VIM que te permitirá editar texto como por arte de magia: <strong>Operadores</strong>.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../05_operadores/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../05_operadores/" class="btn btn-xs btn-link">
+        05 Operadores
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../03_primeros_pasos/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../03_primeros_pasos/" class="btn btn-xs btn-link">
+        03 Primeros pasos
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

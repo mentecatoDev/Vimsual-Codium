@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>11 Modo línea de comando - Vimsual Codium</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Controla VSCode con el modo de l\u00ednea de comandos", url: "#_top", children: [
+              {title: "Escribiendo un comando ex", url: "#escribiendo-un-comando-ex" },
+              {title: "Guardar y cerrar archivos", url: "#guardar-y-cerrar-archivos" },
+              {title: "Eliminar varias l\u00edneas a la vez", url: "#eliminar-varias-lineas-a-la-vez" },
+              {title: "Repetir comandos Ex", url: "#repetir-comandos-ex" },
+              {title: "Sustituir texto", url: "#sustituir-texto" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../12_divisiones_y_pestanas/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../12_divisiones_y_pestanas/" class="btn btn-xs btn-link">
+        12 Divisiones y pestañas
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../10_copiar_y_pegar/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../10_copiar_y_pegar/" class="btn btn-xs btn-link">
+        10 Copiar y pegar
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="controla-vscode-con-el-modo-de-linea-de-comandos">Controla VSCode con el modo de línea de comandos</h1>
+<p><em>El modo de línea de comandos</em> es otro modo más en Vim. Su característica definitoria es la capacidad de ejecutar <strong>comandos Ex</strong> (comandos que comienzan con <strong><code>:</code></strong>) y <strong>patrones de búsqueda</strong> (que comienzan con <strong><code>/</code></strong> y <strong><code>?</code></strong>). Ya hemos discutido la búsqueda en capítulos anteriores, por lo que nos centraremos en los comandos Ex en este.</p>
+<p><strong>Los comandos Ex</strong> son muy útiles y diversos: algunos te permiten configurar Vim (fi <code>:colorscheme</code>), otros te permiten realizar operaciones en todo el sistema (como crear un nuevo archivo con <code>:edit</code>), algunos otros acceden a comandos de shell externos (<strong><code>:!</code></strong>), y otros le permiten editar rápidamente múltiples líneas dentro de un documento con el movimiento de una mano (como <code>:delete</code>).</p>
+<blockquote>
+<p><strong>¿Por qué se llaman comandos ex?</strong></p>
+<p>¿¡Ex!? Un nombre extraño ¿no?. Se llaman comandos Ex porque parte del modo de línea de comandos de Vim se basa en un editor de línea aún más antiguo llamado Ex (también escrito por el creador de <code>vi</code> Bill Joy).</p>
+<p><strong>VSCodeVim solo admite un número muy limitado de comandos Ex, pero se pueden mejorar en gran medida integrando VSCodeVim con Neovim</strong>. Este capítulo presentará el <em>modo de línea de comandos</em> , y dejaremos a Neovim hacia el final del libro cuando te hayas convertido en un practicante de Vim más experimentado. ¡Vamos a sumergirnos!</p>
+</blockquote>
+<h2 id="escribiendo-un-comando-ex">Escribiendo un comando ex</h2>
+<p>Un comando Ex común es <code>:edit</code>. Te permite abrir o crear un archivo escribiendo:</p>
+<pre><code class="vim">:edit {relative-path-to-file}
+</code></pre>
+
+<p><strong>Observe el <code>:</code> antes de este comando</strong>. A diferencia de los comandos del <em>modo Normal</em>, todos los comandos Ex comienzan con dos puntos. Escribir estos dos puntos activa el <em>modo de línea de comandos</em> y lo configura para ingresar un comando.</p>
+<p><strong>Para escribir un comando Ex, escribir literalmente <code>:</code> seguido del nombre del comando</strong> (por ejemplo <code>:edit</code>). Cuando escribes dos puntos y un comando, el comando se mostrará en la parte <strong>inferior izquierda de la pantalla en la barra de estado de VSCode</strong>. ¡Vamos a intentarlo!.</p>
+<p>Crea un nuevo archivo escribiendo:</p>
+<pre><code class="vim">:edit helloworld.js
+</code></pre>
+
+<p>Deberías ver cómo, a medida que escribes dos puntos (<strong><code>:</code></strong>) y el nombre del comando, un cursor y letras se materializan en la parte inferior de la pantalla dentro de la barra de estado.</p>
+<p><img alt="Escribir un comando ex en modo de línea de comando" src="../img/vim-command-line-mode.jpg" /></p>
+<p>Cuando termines de escribir el comando y presiones <code>&lt; Enter &gt;</code>, se creará <code>helloworld.py</code> un nuevo archivo y VSCode lo abrirá para que puedas comenzar a codificar. Si el nombre de archivo que se especifica ya pertenece a un archivo existente, simplemente se abrirá ese archivo.</p>
+<h3 id="edit-y-caminos-relativos"><code>:edit</code> y caminos relativos</h3>
+<p>Cuando se usa el comando <code>:edit</code>, VSCodeVim se configura para usar rutas relativas en relación con el archivo abierto actualmente. No admite la finalización de TAB, por lo que es principalmente útil para crear nuevos archivos que comparten el lugar o viven cerca del archivo actual en el que estás trabajando.</p>
+<p>Como de costumbre, Vim siempre trata de ahorrarte trabajo y esto no es diferente en el <em>modo de línea de comandos</em>: cada comando Ex tiene una versión abreviada que le permite activar un comando con solo unas pocas letras. Por ejemplo, la versión abreviada de <strong><code>:edit</code></strong> es <strong><code>:e</code></strong>. Pruebe la taquigrafía con nuestro ejemplo anterior y verás cómo obtienes los mismos resultados.</p>
+<h2 id="guardar-y-cerrar-archivos">Guardar y cerrar archivos</h2>
+<p>Un par de ingeniosos comandos Ex te permiten guardar y cerrar archivos con bastante rapidez:</p>
+<ul>
+<li>Usa <strong><code>:write</code></strong> (abreviatura <strong><code>:w</code></strong>) para guardar un archivo</li>
+<li>Usa <strong><code>:quit</code></strong> (abreviatura <strong><code>:q</code></strong>) para cerrar un archivo</li>
+</ul>
+<p>Estos dos comandos son lo que me gusta llamar <em>comandos suaves</em>. Intentarán realizar la acción que describen pero, en algunas condiciones, fallarán y te pedirán que tomes más medidas. Por ejemplo, <strong><code>:write</code></strong> guardará un archivo pero fallará si el archivo no ha cambiado o si es de solo lectura. Del mismo modo <strong><code>:quit</code></strong>, cerrará un archivo pero fallará si el archivo tiene cambios sin guardar.</p>
+<p>Si deseas ignorar cualquier queja y realizar una acción a toda costa, puedes combinar los comandos anteriores con <strong><code>!</code></strong>. Puedes pensar en el <strong><code>!</code></strong> como una forma de <em>forzar</em> un comando:</p>
+<ul>
+<li>Usa <strong><code>:write!</code></strong> (abreviatura <strong><code>:w!</code></strong>) para guardar un archivo incluso si ya se ha guardado o si es de solo lectura</li>
+<li>Usa <strong><code>:quit!</code></strong> (abreviatura <strong><code>:q!</code></strong>) para cerrar un archivo sin guardar.</li>
+</ul>
+<p>Puedes combinar estos comandos para realizar múltiples acciones:</p>
+<ul>
+<li>Usa <strong><code>:wq</code></strong> para guardar y cerrar un archivo</li>
+</ul>
+<p>O aplícalos a todos los archivos abiertos a la vez:</p>
+<ul>
+<li>Usa <strong><code>:wall</code></strong> (abreviatura <strong><code>:wa</code></strong>) para guardar todos los archivos</li>
+<li>Usa <strong><code>:qall</code></strong> (abreviatura <strong><code>:qa</code></strong>) para cerrar todos los archivos</li>
+<li>Usa <strong><code>:wqall</code></strong> (abreviatura <strong><code>:wqa</code></strong>) para guardar y cerrar todos los archivos</li>
+<li>Usa <strong><code>:qall!</code></strong> (abreviatura <strong><code>:qa!</code></strong>) para cerrar todos los archivos sin guardar</li>
+</ul>
+<h2 id="eliminar-varias-lineas-a-la-vez">Eliminar varias líneas a la vez</h2>
+<p>En capítulos anteriores aprendiste que Vim tiene un grupo de operadores que te permiten realizar cambios en el texto: <strong><code>d</code></strong>eliminar, <strong><code>c</code></strong>cambiar, <strong><code>y</code></strong>tirar, etc.</p>
+<p>Vim también proporciona una serie de comandos Ex que realizan acciones equivalentes a los operadores del <em>modo Normal</em> pero con un caso de uso diferente en mente: operar en varias líneas a la vez.</p>
+<p>Estos comandos Ex de edición de texto toman la siguiente forma:</p>
+<pre><code class="vim">:[range]command[options]
+</code></pre>
+
+<p>...donde <strong><code>range</code></strong> define un rango de líneas a las que aplicar el comando y <strong><code>options</code></strong> varían según el comando en sí. Por ejemplo, en el caso de <strong><code>:delete</code></strong> tenemos:</p>
+<pre><code class="text">:[range]d [register]
+</code></pre>
+
+<p>Donde <strong><code>register</code></strong> representa un registro en el que cortar lo que sea que eliminamos. Por ejemplo:</p>
+<pre><code class="text">:10,12d a
+</code></pre>
+
+<p>Elimina las líneas 10, 11 y 12 y las coloca dentro del registro <strong><code>a</code></strong>. Como puedes apreciar, los rangos generalmente se definen por sus extremos: una línea inicial y una línea final. Estos extremos pueden, a su vez, expresarse de diferentes maneras:</p>
+<ul>
+<li>Usar números (por ejemplo, <strong><code>:10,12d</code></strong> para eliminar las líneas 10, 11 y 12)</li>
+<li>Uso de compensaciones (por ejemplo, <strong><code>:10,+2d</code></strong> para eliminar las líneas 10, 11 y 12)</li>
+<li>Usar la línea actual representada por <strong><code>.</code></strong> (por ejemplo, <strong><code>:.,+2d</code></strong> para eliminar la línea actual y las dos siguientes)</li>
+<li>Utilizando <strong><code>%</code></strong> para representar todo el archivo (por ejemplo, <strong><code>:%d</code></strong> para eliminar todo el archivo)</li>
+<li>Utilizando <strong><code>0</code></strong> para representar el comienzo del archivo (por ejemplo, <strong><code>:0,+10d</code></strong> para eliminar las primeras 10 líneas)</li>
+<li>Utilizando <strong><code>$</code></strong> para representar el final del archivo (por ejemplo, <strong><code>:.,$d</code></strong> para eliminar de la línea actual al final del archivo)</li>
+<li>Si usas el <em>modo Visual</em> para hacer una selección de texto y luego escribes, <strong><code>:</code></strong> tu área de línea de comando se completará previamente con el siguiente gobbledygook: <strong><code>:'&lt;,'&gt;</code></strong> que es un rango especial que representa la selección actual de texto visual (por ejemplo, <strong><code>:'&lt;,'&gt;d</code></strong> significa eliminar la selección de texto actual).</li>
+</ul>
+<p>¿Por qué usar comandos Ex en lugar de los comandos de modo normal que aprendimos en capítulos anteriores? Los comandos Ex son útiles porque te permiten aplicar un comando en un rango de líneas sin necesidad de mover el cursor a esa ubicación primero. <strong>Siempre que necesites aplicar un cambio en varias líneas, considera usar comandos Ex</strong>. Puede ser un enfoque más rápido que el <em>modo Normal</em>.</p>
+<p>Otras alternativas de comandos Ex útiles a los comandos del <em>modo Normal</em> son <code>:yank</code>, <code>:put</code>, <code>:copy</code> y <code>:move</code> pero no son compatibles con VSCodeVim a menos que habilitemos la integración con Neovim.</p>
+<h2 id="repetir-comandos-ex">Repetir comandos Ex</h2>
+<p>Al igual que puedes repetir los comandos del <em>modo Normal</em> con el operador punto, los comandos Ex también tienen un comando repetidor. Escribe <strong><code>@:</code></strong> y repetirás el último comando Ex, a partir de ese momento puedes repetirlo nuevamente con <strong><code>@@</code></strong>.</p>
+<h2 id="sustituir-texto">Sustituir texto</h2>
+<p>Otro comando Ex útil es <code>:substitute</code>. Te permite sustituir fragmentos arbitrarios de texto por otros de su elección. La forma de este comando es:</p>
+<pre><code class="vim">:[range]s/{pattern}/{substitute}/{flags}
+</code></pre>
+
+<p>Dónde:</p>
+<ul>
+<li><strong><code>range</code></strong> define el rango en el que aplicaremos la sustitución</li>
+<li><strong><code>pattern</code></strong> es un patrón de búsqueda que describe el texto que queremos cambiar. Como si <strong><code>/{pattern}</code></strong> fuera compatible con expresiones regulares.</li>
+<li><strong><code>substitute</code></strong> es el texto que queremos sustituir</li>
+<li><strong><code>flags</code></strong> establezcamos opciones que configuren la sustitución</li>
+</ul>
+<p>Por ejemplo, el siguiente comando:</p>
+<pre><code class="vim">:s/led/gold
+</code></pre>
+
+<p>transmuta la primera aparición de <code>led</code> en la línea actual por <code>gold</code>.</p>
+<p>Si queremos cambiar <strong>todas las ocurrencias en la línea actual</strong>, necesitamos agregar la bandera <strong><code>g</code></strong> o bandera <em>global</em> de la siguiente manera:</p>
+<pre><code class="vim">:s/led/gold/g
+</code></pre>
+
+<p>Y si queremos cambiar <strong>todas las apariciones de un archivo completo</strong>, solo tenemos que especificar el archivo completo como un rango con <code>%</code> esto es:</p>
+<pre><code class="vim">:%s/led/gold/g
+</code></pre>
+
+<p>Además de la bandera <strong><code>g</code></strong> podemos usar:</p>
+<ul>
+<li><strong><code>i</code></strong> para búsquedas insensibles a mayúsculas y minúsculas</li>
+<li><strong><code>c</code></strong> para confirmar todas y cada una de las sustituciones</li>
+</ul>
+<p>El hecho de que podamos usar expresiones regulares con el comando <strong><code>:s</code></strong> abre la puerta a muchos casos de uso creativo. Por ejemplo, podríamos cambiar el nivel de sangría de todos los títulos en un archivo de reducción utilizando el siguiente comando <strong><code>:s</code></strong>:</p>
+<pre><code class="vim">:%s/^#//
+</code></pre>
+
+<p>Que se puede traducir como:</p>
+<ul>
+<li><strong><code>%</code></strong> para todo el archivo</li>
+<li><strong><code>s</code></strong> sustituir</li>
+<li><strong><code>^#</code></strong> cualquiera <strong><code>#</code></strong> al comienzo de una línea (es decir, un encabezado en la reducción)</li>
+<li><strong><code>//</code></strong> para un carácter vacío</li>
+</ul>
+<h3 id="global-por-defecto">Global por defecto</h3>
+<p>A menudo, cuando hago una sustitución, quiero cambiar todas las ocurrencias de un patrón. Si tienes el mismo hábito, es posible que desees habilitar la opción <em>"Vim: Sustitute</em> como <em>global"</em> en tus preferencias de VSCodeVim. Esto habilitará la bandera <code>g</code> para todas las sustituciones y te ahorrará algo de escritura.</p>
+<p>Cuando esta opción está activada, la bandera <code>g</code> cambia su significado al opuesto de lo que solía ser. A partir de entonces, agregarlo a un comando <code>:s</code> significará que solo se sustituirá la primera aparición en una línea.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../12_divisiones_y_pestanas/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../12_divisiones_y_pestanas/" class="btn btn-xs btn-link">
+        12 Divisiones y pestañas
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../10_copiar_y_pegar/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../10_copiar_y_pegar/" class="btn btn-xs btn-link">
+        10 Copiar y pegar
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

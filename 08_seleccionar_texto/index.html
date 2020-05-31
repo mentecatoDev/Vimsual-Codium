@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>08 Seleccionar texto - Vimsual Codium</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Seleccionar texto en modo visual", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../10_copiar_y_pegar/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../10_copiar_y_pegar/" class="btn btn-xs btn-link">
+        10 Copiar y pegar
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../07_insertar_texto/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../07_insertar_texto/" class="btn btn-xs btn-link">
+        07 Insertar texto
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="seleccionar-texto-en-modo-visual">Seleccionar texto en modo visual</h1>
+<p><strong>El modo visual es el equivalente de Vim a seleccionar texto con un mouse</strong>. Pero en lugar de usar un mouse lento, se selecciona un texto confiando en los rápidos movimientos de Vim. A medida que seleccionas el texto en <em>modo Visual</em>, Vim resaltará tu selección proporcionando una ayuda visual. Esta retroalimentación visual hace que el <em>modo Visual</em> sea especialmente útil cuando sientas la necesidad de ser más preciso antes de realizar una acción.</p>
+<p>Hay tres formas de iniciar el <em>modo Visual</em>:</p>
+<p><img alt="Comandos de modo visual" src="../img/vim-visual-mode-commands.jpg" /></p>
+<ul>
+<li><strong><code>v</code></strong> para el modo visual en cuanto a <strong>caracteres</strong>. Este modo te permite seleccionar texto carácter a carácter.</li>
+<li><strong><code>V</code></strong> para modo visual en <strong>línea</strong>. Este otro te permite seleccionar texto línea por línea.</li>
+<li><strong><code>&lt;Ctrl&gt;-v</code></strong> para el modo visual por <strong>bloques</strong>. Este último modo te permite seleccionar texto usando bloques rectangulares</li>
+</ul>
+<p><em>El modo visual</em> puede ser muy útil para copiar y pegar cosas y cuando se opera en bloques de texto o código donde crees que necesitas esa retroalimentación visual adicional. Funciona de manera opuesta al modo <em>Normal</em>. En el <em>modo Normal</em>, primero se define el operador y luego un movimiento que representa un texto al que aplicar ese operador:</p>
+<pre><code class="text">{operator}{count}{motion}
+</code></pre>
+
+<p>En <em>modo Visual</em>, sin embargo, primero seleccionas el texto y <strong>luego</strong> escribe el operador:</p>
+<pre><code class="text">{trigger visual mode}{motion}{operator}
+</code></pre>
+
+<p><img alt="El modo visual es opuesto al modo normal" src="../img/vim-visual-mode-opposite.jpg" /></p>
+<p>Así que, para eliminar las siguientes dos líneas:</p>
+<pre><code class="text">lines filled with mambo jambo.
+that totally deserved to be deleted from existence.
+</code></pre>
+
+<p>Puedes escribir <strong><code>d2s</code></strong> en <em>modo Normal</em> o:</p>
+<ol>
+<li>Ir al modo visual de líneas con <strong><code>V</code></strong> que selecciona la línea actual</li>
+<li>Presiona <strong><code>j</code></strong> para bajar una línea y así seleccionarla también.</li>
+<li>Ahora que has seleccionado las dos líneas escribe <strong><code>d</code></strong> y ya no estarán.</li>
+</ol>
+<p><strong>El modo visual a menudo es más lento que usar comandos directamente en modo Normal, pero tendrás esa ayuda visual adicional que te garantiza que estás aplicando un comando exactamente donde deseas que se aplique</strong>.</p>
+<p><img alt="Utiliza el modo Visual cuando te enfrentes a situaciones difíciles" src="../img/vim-visual-mode-usage.jpg" /></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../10_copiar_y_pegar/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../10_copiar_y_pegar/" class="btn btn-xs btn-link">
+        10 Copiar y pegar
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../07_insertar_texto/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../07_insertar_texto/" class="btn btn-xs btn-link">
+        07 Insertar texto
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

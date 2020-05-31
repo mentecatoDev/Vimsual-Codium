@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="None">
+    
+    
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Vimsual Codium</title>
+    <link href="./css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="./css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="./css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/bootstrap-3.3.7.min.js"></script>
+    <script src="./js/highlight.pack.js"></script>
+    
+      <script src="./js/elasticlunr.min.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '.';
+      var is_top_frame = (window === window.parent);
+        
+        var pageToc = [
+          {title: "Welcome to MkDocs", url: "#_top", children: [
+              {title: "Commands", url: "#commands" },
+              {title: "Project layout", url: "#project-layout" },
+          ]},
+        ];
+
+    </script>
+    <script src="./js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="./search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-right wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
+
+    
+    
+
+    
+    <a href="" class="wm-top-brand wm-top-link wm-vcenter">
+      
+      <div class="wm-top-title">
+        Vimsual Codium<br>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+  <div id="main-content" class="wm-page-top-frame">
+    
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        <li class="wm-toc-li wm-toc-lev1 "><a href="01_introduccion/" class="wm-article-link wm-toc-text">01 Introducción</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="02_instalacion/" class="wm-article-link wm-toc-text">02 Instalación</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="03_primeros_pasos/" class="wm-article-link wm-toc-text">03 Primeros pasos</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="04_moviendote/" class="wm-article-link wm-toc-text">04 Moviéndote</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="05_operadores/" class="wm-article-link wm-toc-text">05 Operadores</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="06_lenguaje_secreto/" class="wm-article-link wm-toc-text">06 Lenguaje secreto</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="07_insertar_texto/" class="wm-article-link wm-toc-text">07 Insertar texto</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="08_seleccionar_texto/" class="wm-article-link wm-toc-text">08 Seleccionar texto</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="09_coincidencias_de_busqueda.md" class="wm-article-link wm-toc-text">09 Coincidencias de búsqueda</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="10_copiar_y_pegar/" class="wm-article-link wm-toc-text">10 Copiar y pegar</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="11_modo_linea_de_comando/" class="wm-article-link wm-toc-text">11 Modo línea de comando</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="12_divisiones_y_pestanas/" class="wm-article-link wm-toc-text">12 Divisiones y pestañas</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="13_vim-surround/" class="wm-article-link wm-toc-text">13 Vim-surround</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="14_asignaciones_personalizadas.md" class="wm-article-link wm-toc-text">14 Asignaciones personalizadas</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="15_mas_rapido.md" class="wm-article-link wm-toc-text">15 Más rápido</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="16_cursores_multiples.md" class="wm-article-link wm-toc-text">16 Cursores múltiples</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="17_macros.md" class="wm-article-link wm-toc-text">17 Macros</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="18_explorador_de_archivos.md" class="wm-article-link wm-toc-text">18 Explorador de archivos</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="19_vscode_con_neovim.md" class="wm-article-link wm-toc-text">19 VSCode con Neovim</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="20_teclas_practicas.md" class="wm-article-link wm-toc-text">20 Teclas prácticas</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 "><a href="21_epilogo.md" class="wm-article-link wm-toc-text">21 Epílogo</a>
+</li>
+  </ul>
+</nav>
+
+    <div class="wm-content-pane">
+      <iframe class="wm-article" name="article"></iframe>
+    </div>
+  </div>
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+
+    <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
+<p>For full documentation visit <a href="https://mkdocs.org">mkdocs.org</a>.</p>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
+<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
+<li><code>mkdocs build</code> - Build the documentation site.</li>
+<li><code>mkdocs help</code> - Print this help message.</li>
+</ul>
+<h2 id="project-layout">Project layout</h2>
+<pre><code>mkdocs.yml    # The configuration file.
+docs/
+    index.md  # The documentation homepage.
+    ...       # Other markdown pages, images and other files.
+</code></pre>
+
+  <br>
+    
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2020-05-31 13:26:03
+-->

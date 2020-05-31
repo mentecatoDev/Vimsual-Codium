@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Operando como un rayo con coincidencias de búsqueda - Vimsual Codium</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Operando como un rayo con coincidencias de b\u00fasqueda", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+
+    <h1 id="operando-como-un-rayo-con-coincidencias-de-busqueda">Operando como un rayo con coincidencias de búsqueda</h1>
+<p>Anteriormente, aprendiste cómo puedes usar repetidores para guardar las pulsaciones de teclas y realizar acciones más rápido. Escribe <strong><code>n</code></strong> para repetir una búsqueda. Escribe <strong><code>.</code></strong> para repetir el último cambio. Utilizando una combinación de ambos <strong><code>n</code></strong> y <strong><code>.</code></strong> se puede aplicar el mismo cambio en cada búsqueda con solo dos pulsaciones de teclas. Dos pulsaciones de teclas. Eso es rápido.</p>
+<p><strong>Pero, ¿y si te digo que hay una manera más rápida?</strong></p>
+<p>Antes de entrar en eso, ilustremos el combo <strong><code>n</code></strong> y <strong><code>.</code></strong> con un ejemplo. Eso nos dará algunos antecedentes nuevos sobre lo que estamos tratando de lograr y nos permitirá destacar cómo el nuevo enfoque mejora en este caso.</p>
+<p>Por ejemplo, digamos que estamos en un mercado para destruir pepinos. Somos cazadores de pepinos mortales y robustos, y hay algunos pepinos que necesitan borrarse:</p>
+<pre><code class="text">pepino zanahoria lechuga
+repollo zanahoria lechuga pepino
+pepino pepino zanahoria
+col pepino col
+</code></pre>
+
+<p>Una forma de hacerlo sería:</p>
+<ol>
+<li>Ubica pepino con <code>/pepino</code></li>
+<li>Destruye pepino con <strong><code>daw</code></strong></li>
+<li>Escribe <strong><code>n</code></strong> para ir al siguiente objetivo</li>
+<li>Termina repitiendo el último cambio con el comando <strong><code>.</code></strong></li>
+<li>Repite desde el paso <code>3</code> hasta que todos los pepinos se hayan terminado</li>
+<li>Recoger la recompensa</li>
+</ol>
+<p>Resulta que hay una forma aún más efectiva de realizar operaciones en las coincidencias de búsqueda: <strong><code>gn</code></strong> y <strong><code>gN</code></strong>. Puedes ver estos dos movimientos como versiones sobrealimentadas de <strong><code>n</code></strong> y <strong><code>N</code></strong>.</p>
+<p><strong><code>gn</code></strong> funciona de la siguiente manera:</p>
+<ol>
+<li>Si estás encima de una coincidencia de búsqueda, selecciona la coincidencia en <em>modo Visual</em>.</li>
+<li>Si estás en <em>modo Visual</em>, extiende tu selección actual hasta el final de la próxima coincidencia.</li>
+<li>(y la mejor parte) Si estás en modo de <em>operador pendiente</em>, <strong>funciona con la próxima coincidencia</strong> .</li>
+</ol>
+<p>¿Qué significa todo esto? <strong>Significa que al aprovechar <code>gn</code> podemos operar con la próxima ocurrencia con solo presionar una tecla</strong>. Con <strong><code>gn</code></strong> el comando <strong><code>.</code></strong> encapsula el significado de <strong>"aplicar este cambio a la próxima ocurrencia"</strong>.</p>
+<p>En la práctica, si seguimos el mismo ejemplo anterior usando el comando <strong><code>gn</code></strong>, seremos mucho más eficientes a la hora de terminar con los pepinos:</p>
+<ol>
+<li>Buscar pepinos con <code>/pepino</code></li>
+<li>Aplicar el cambio a la próxima ocurrencia <strong><code>dgn</code></strong></li>
+<li>Repetir el cambio en la próxima ocurrencia <strong><code>.</code></strong></li>
+<li>Solo presiona <strong><code>.</code></strong> hasta que hayas terminado</li>
+<li>Recoge las recompensas mucho más rápido</li>
+</ol>
+<p>Después de usar <strong><code>gn</code></strong> no hay necesidad de combinar <strong><code>n</code></strong> y <strong><code>.</code></strong> porque <strong><code>.</code></strong> ya incluye la próxima ocurrencia. <strong>¡Increíble!</strong>.</p>
+
+  <br>
+    
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

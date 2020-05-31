@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>13 Vim-surround - Vimsual Codium</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Cosas circundantes con vim surround", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../12_divisiones_y_pestanas/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../12_divisiones_y_pestanas/" class="btn btn-xs btn-link">
+        12 Divisiones y pestañas
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="cosas-circundantes-con-vim-surround">Cosas circundantes con vim surround</h1>
+<p>VSCodeVim viene con un montón de complementos útiles de Vim integrados. Uno de ellos es <a href="https://github.com/tpope/vim-surround">vim-surround,</a> que está habilitado de forma predeterminada y extiende el lenguaje secreto de Vim con un nuevo operador: <strong>surround</strong> o <strong><code>s</code></strong>.</p>
+<p>Usando el operador de "sonido" envolvente podemos operar en los alrededores (comillas, paréntesis, llaves, etiquetas, etc.) de franjas de texto de la misma manera que utilizamos otros operadores dentro de Vim.</p>
+<p>El operador envolvente en sí mismo puede verse como tres operadores separados:</p>
+<ul>
+<li><strong><code>ds</code></strong> para eliminar los alrededores</li>
+<li><strong><code>cs</code></strong> para cambiar el entorno</li>
+<li><strong><code>ys</code></strong> para agregar alrededores</li>
+</ul>
+<p>Y así, como cualquier operador en Vim, se usarían así:</p>
+<pre><code class="text">ds{count}{motion}
+cs{count}{motion}
+ys{count}{motion}
+</code></pre>
+
+<p>Por ejemplo:</p>
+<ul>
+<li><strong><code>ds'</code></strong> para eliminar el entorno <strong><code>'</code></strong> (<code>ds{char}</code>)</li>
+<li><strong><code>cs'"</code></strong> cambiar el entorno <strong><code>'</code></strong> para <strong><code>"</code></strong> (<code>cs{old}{new}</code>)</li>
+<li><strong><code>ysaptli&gt;</code></strong> para rodear un párrafo con un <strong>t</strong>ag <code>&lt;li&gt;</code> (<code>ys{motion}{char}</code>)</li>
+</ul>
+<p>¿Recuerda que siempre puedes usar el comando <strong><code>.</code></strong> para repetir el último cambio? ¿Deseas rodear varios elementos de texto con un elemento <strong><code>&lt;li&gt;</code></strong>? Puedes escribir <strong><code>ysaptli&gt;</code></strong> la primera vez y luego <strong><code>.</code></strong> las siguientes.</p>
+<p>También puedes usar <em>vim-surround</em> seleccionando un poco de texto en modo visual y luego usándolo <code>S{desired character}</code>. Esto rodeará tu selección de texto con el carácter deseado.</p>
+<p>Inténtalo. Te ahorrará mucho de tiempo.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../12_divisiones_y_pestanas/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../12_divisiones_y_pestanas/" class="btn btn-xs btn-link">
+        12 Divisiones y pestañas
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

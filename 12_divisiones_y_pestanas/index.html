@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>12 Divisiones y pestañas - Vimsual Codium</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Divisiones, pesta\u00f1as y cambio entre ellas", url: "#_top", children: [
+              {title: "Splits", url: "#splits" },
+              {title: "Pesta\u00f1as", url: "#pestanas" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../13_vim-surround/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../13_vim-surround/" class="btn btn-xs btn-link">
+        13 Vim-surround
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../11_modo_linea_de_comando/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../11_modo_linea_de_comando/" class="btn btn-xs btn-link">
+        11 Modo línea de comando
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="divisiones-pestanas-y-cambio-entre-ellas">Divisiones, pestañas y cambio entre ellas</h1>
+<p>Una gran característica en Vim es su gran soporte para divisiones y pestañas. Crear, redimensionar, reorganizar y mover entre divisiones y pestañas es increíblemente fácil y rápido en Vim. VSCodeVim ofrece un soporte aceptable para esta característica de Vim que, aunque no es tan buena como la de Vim, sigue siendo útil.</p>
+<h2 id="splits">Splits</h2>
+<p>Las divisiones son increíbles. Te permiten configurar tu espacio de trabajo en ventanas divididas vertical y horizontalmente:</p>
+<ul>
+<li>Usa el comando <strong><code>:sp {relative-path-to-file}</code></strong> para abrir un archivo en un <strong>espacio</strong> horizontal resaltado.</li>
+<li>Utiliza el <strong><code>:vsp {relative-path-to-file}</code></strong> para abrir un archivo en un <strong>sp</strong>lit <strong>v</strong>ertical.</li>
+</ul>
+<p>Alternativamente, en lugar de estos comandos Ex, puedes usar:</p>
+<ul>
+<li><strong><code>Ctrl-W S</code></strong> abrir una división horizontal (mnemónico <strong>W</strong>indow y <strong>S</strong>plit).</li>
+<li><strong><code>Ctrl-W V</code></strong> para abrir una división vertical (mnemónico <strong>W</strong>indow <strong>V</strong>ertical).</li>
+</ul>
+<p>El uso de cualquiera de estos comandos abrirá una división en el mismo archivo que estás editando actualmente. Entonces, después de crear la división, deberás escribir <strong><code>CTRL-P</code></strong> para abrir un nuevo archivo en esa división.</p>
+<p><img alt="Ventana dividida en Vim" src="../img/vim-window-splitting.jpg" /></p>
+<p>Puedes moverte entre divisiones usando <strong><code>CTRL-W</code></strong> + <strong><code>hjkl</code></strong>. <em>¿Estás actualmente en una división vertical y quieres moverte a la de la derecha?</em> Escribe <strong><code>CTRL-W</code></strong> luego <strong><code>l</code></strong> (el movimiento que normalmente usas para mover el cursor hacia la derecha). Tiene sentido, ¿no? Esta combinación de teclas funciona incluso al saltar de una ventana de código al explorador de archivos o un terminal integrado. <strong>¡Genial!</strong></p>
+<h2 id="pestanas">Pestañas</h2>
+<p>En Visual Studio Code se pueden abrir varias pestañas dentro de una división. Con el fin de hacerlo:</p>
+<ul>
+<li>Usa <strong><code>:tabnew {file}</code></strong> para abrir un archivo en una pestaña nueva</li>
+<li>Usa <strong><code>:tabn</code></strong> (<strong><code>:tabnext</code></strong>) para ir a la pestaña <strong>n</strong>ext</li>
+<li>Usa <strong><code>:tabp</code></strong> (<strong><code>:tabprevious</code></strong>) para ir a la <strong>p</strong>estaña previa</li>
+<li>Usa <strong><code>:tabo</code></strong>( <strong><code>:tabonly</code></strong>) para cerrar todas las demás pestañas</li>
+</ul>
+<p>Hay algunos <a href="https://github.com/VSCodeVim/Vim/blob/master/ROADMAP.md#tabs">comandos Ex adicionales para trabajar con pestañas,</a> pero estos son definitivamente los más útiles.</p>
+<h3 id="todavia-hay-mucho-que-escribir-lo-se">Todavía hay mucho que escribir ¡Lo sé!</h3>
+<p>Los comandos predeterminados para operar y moverse por divisiones y pestañas son un poco detallados y por tanto engorrosos e incómodos. En capítulos posteriores, aprenderás cómo puedes personalizarlos para usar divisiones y pestañas de manera más efectiva.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../13_vim-surround/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../13_vim-surround/" class="btn btn-xs btn-link">
+        13 Vim-surround
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../11_modo_linea_de_comando/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../11_modo_linea_de_comando/" class="btn btn-xs btn-link">
+        11 Modo línea de comando
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

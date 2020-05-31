@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>01 Introducción - Vimsual Codium</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introducci\u00f3n", url: "#_top", children: [
+              {title: "\u00bfQu\u00e9 es VIM?", url: "#que-es-vim" },
+              {title: "\u00bfPor qu\u00e9 VIM? \u00bfNo es suficiente el c\u00f3digo de Visual Studio?", url: "#por-que-vim-no-es-suficiente-el-codigo-de-visual-studio" },
+              {title: "\u00bfPor qu\u00e9 VIM en VSCODE y no solo VIM?", url: "#por-que-vim-en-vscode-y-no-solo-vim" },
+              {title: "Una breve nota sobre las convenciones utilizadas", url: "#una-breve-nota-sobre-las-convenciones-utilizadas" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../02_instalacion/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../02_instalacion/" class="btn btn-xs btn-link">
+        02 Instalación
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="introduccion">Introducción</h1>
+<ul>
+<li>
+<p><strong>Visual Studio Code</strong> ofrece una experiencia de usuario incomparable con un gran soporte para muchos idiomas y ecosistemas de desarrollo. Viene con excelentes valores predeterminados y es muy fácil de usar y comenzar con él.</p>
+</li>
+<li>
+<p><strong>Vim es asombroso.</strong> Su naturaleza <strong>modal</strong> y sus características de edición de texto lo hacen único entre otros editores. Vim ofrece un nivel completamente diferente de capacidad de edición de texto, velocidad y precisión.</p>
+</li>
+</ul>
+<p>La combinación de ambos no podría ser menos <strong>asombrosamente increíble</strong>.</p>
+<p>Al combinar las fortalezas de <strong>Vim</strong> y <strong>Visual Studio Code</strong>, podrás hacer que la interfaz entre tu cerebro y la computadora sea muy delgada, haciendo que tus pensamientos se materialicen perfectamente en código.</p>
+<p>Esto es lo que vamos a cubrir:</p>
+<ul>
+<li>¿Qué es vim? ¿Y por qué usar Vim en VSCode?</li>
+<li>¿Cómo instalar Vim en VSCode?</li>
+<li>Habilidades básicas para sobrevivir en Vim</li>
+<li>Moviéndote increíblemente rápido con Core Vim Motions</li>
+<li>Edición a la velocidad del pensamiento con operadores y movimientos de Vim</li>
+<li>El lenguaje secreto de Vim</li>
+<li>Insertar texto a la Vim</li>
+<li>Seleccionar texto en modo visual</li>
+<li>Copiar y pegar Aprovechando registros</li>
+<li>Cosas circundantes con Vim Surround</li>
+<li>Mudarse aún más rápido con los plugins Sneak y EasyMotion</li>
+<li>Crear accesos directos personalizados para hacerlo más efectivo</li>
+<li>Sobrecargando múltiples cursores con Vim</li>
+<li>Crear unidades de edición reutilizables con macros</li>
+<li>Integrando VSCode con Neovim para un asombro máximo</li>
+</ul>
+<p>Al final, serás capaz de manipulaciones de texto muy precisas y poderosas transformaciones de texto que antes eran inalcanzables para tí. Y con el tiempo, y a medida que practiques y te sientas cómodo con los diferentes comandos de Vim, te volverás más rápido y más competente en la edición que nunca.</p>
+<blockquote>
+<p>No se asume ningún conocimiento previo de Vim, así que no te preocupes si no estás familiarizado con Vim. Te guiaré a través de todos los conceptos y técnicas que necesitas saber para ser efectivo con Visual Studio Code y Vim.</p>
+</blockquote>
+<h2 id="que-es-vim">¿Qué es VIM?</h2>
+<p><a href="https://www.vim.org/">Vi</a> es un antiguo editor de texto. Más viejo incluso que <a href="https://en.wikipedia.org/wiki/Vi">la primera edad del mundo</a>. Fue diseñado para trabajar en artilugios llamados <em>terminales</em> con la característica muy poco común pero inspirada de <strong>funcionar de manera modal</strong>. Es decir, tiene un modo para <strong>insertar texto</strong>, otro para <strong>editar texto</strong> y uno diferente para <strong>seleccionar texto</strong>, esencialmente.</p>
+<p>La última y más famosa encarnación de Vi es <a href="https://en.wikipedia.org/wiki/Vim_(text_editor)">Vim</a> (<strong>V</strong>i <strong>IM</strong>proved o formalmente <strong>V</strong>i <strong>IM</strong>itation) que funciona con interfaces de texto y gráficas, viene con una gran cantidad de mejoras sobre <a href="https://en.wikipedia.org/wiki/Vim_(text_editor)#Features_and_improvements_over_vi">vi</a> y es compatible con todas las plataformas conocidas por la humanidad.</p>
+<p>Pero el impacto de Vim no se detiene con Vim, <strong>las ideas de Vim son tan notables que han trascendido al editor de Vim y se han propagado a otros editores</strong>. Hoy puedes encontrar modos similares a Vim en casi cualquier editor e IDE que puedas imaginar. Como, apropiadamente, en <strong>Visual Studio Code</strong>.</p>
+<h2 id="por-que-vim-no-es-suficiente-el-codigo-de-visual-studio">¿Por qué VIM? ¿No es suficiente el código de Visual Studio?</h2>
+<p><strong>¿Por qué deberías preocuparte por aprender sobre un antiguo editor en estos tiempos?</strong> ¿Realmente marca una gran diferencia en mi configuración de Visual Studio Code?</p>
+<p>La verdad es que Vim proporciona una forma diferente de interactuar con el texto de cualquier otra cosa que hayas visto. Una forma que te brinda <strong>un nivel completamente diferente de control y fluidez al editar código</strong> .</p>
+<p>A manos de un usuario experimentado, editar texto con Vim <strong>parece mágico</strong>:</p>
+<ul>
+<li><strong>Vim te hace más rápido</strong> .</li>
+<li><strong>Vim te hace más preciso</strong></li>
+<li><strong>Vim desbloquea un nivel de control completamente diferente en la edición de texto</strong></li>
+<li><strong>Vim adelgaza la interfaz entre tu cerebro y la computadora</strong></li>
+<li><strong>Es sorprendente contemplarlo mientras se hacen presentaciones</strong> :D</li>
+</ul>
+<p>¡Increíble! Eso suena muy bien y todo eso... Pero... <em>¿Cómo puede Vim lograr todo esto?</em> La respuesta es: <strong>modos</strong>.</p>
+<p>La naturaleza modal de Vim le permite a tu teclado controlar cada aspecto de tu editor. Cada modo es una pizarra limpia que le da a tu teclado nuevos poderes, para editar texto a la velocidad del rayo, navegar a la velocidad del pensamiento, seleccionar y mover texto al contenido de tu corazón, y más.</p>
+<p>Con Vim, ya no estás limitado a insertar texto ni estás sujeto a la tiranía del mouse para hacer clic, navegar o seleccionar texto. No. Después de usar Vim durante un tiempo, <strong>serás como un cirujano de códigos</strong> que realiza incisiones expertas con precisión quirúrgica cuando y donde sea necesario, navegando a través de tu código a la velocidad del rayo y a la precisión de un <strong>flujo de trabajo totalmente controlado por teclado</strong> .</p>
+<p>Entonces, <strong>¿por qué querrías aprender Vim hoy en día?</strong>. Parafraseando al poderoso autor <a href="https://twitter.com/nelstrom">Drew Neil</a> de <a href="https://amzn.to/2CIzSpb">Practical Vim</a> y maestro de los arcanos más oscuros de Vim:</p>
+<blockquote>
+<p>Vim is for programmers who want to raise their game. In the hands of an expert, Vim shreds text at the speed of thought.</p>
+<p>Vim es para <strong>programadores que quieren mejorar su juego</strong>. En manos de un experto, <strong>Vim tritura el texto a la velocidad del pensamiento</strong>.</p>
+</blockquote>
+<p>¿Y quién no querría eso?</p>
+<h2 id="por-que-vim-en-vscode-y-no-solo-vim">¿Por qué VIM en VSCODE y no solo VIM?</h2>
+<p>Tal vez te estés preguntando... Ok. Si Vim es tan bueno, entonces... ¿Por qué no usar Vim en lugar de Vim dentro de Visual Studio Code?</p>
+<p>¡Gran pregunta! La verdad es que configurar Vim para que funcione con un conjunto de características similar a los editores de texto modernos no es una tarea trivial. Características como la finalización del código, la navegación del código, los mensajes de error en el editor, etc., aunque Vim no lo admite, funcionan perfectamente de forma inmediata.</p>
+<p>Visual Studio Code y Vim juntos ofrecen un punto muy dulce que equilibra la facilidad de configuración y la experiencia de usuario de desarrollo súper rica de Visual Studio Code con muchas de las increíbles funciones presentes en Vim.</p>
+<p>Sin embargo, la traducción aún no es perfecta. Y si eres un usuario experimentado de Vim, es posible que falten algunas funciones. Pero en general, VSCodeVim ofrece una experiencia de Vim muy agradable fuera de Vim.</p>
+<h2 id="una-breve-nota-sobre-las-convenciones-utilizadas">Una breve nota sobre las convenciones utilizadas</h2>
+<p>Dado que mucho de lo que sucede en Vim depende de la ubicación del cursor, he usado una serie de diagramas que muestran la posición del cursor y cómo cambia con el tiempo a medida que escribes comandos. Y dado que es bastante poco convencional frente a otros libros de programación, creo que te será útil que te lo explique para que estés preparado antes de que te lo encuentres por primera vez. Aquí hay un ejemplo:</p>
+<pre><code class="text">wwww ==&gt; v   v v  v   v
+         word. is two words
+</code></pre>
+
+<p>Eso significa lo siguiente:</p>
+<pre><code class="text">  comandos tecleándose    posición del cursor
+   /                    /   cambiando mientras
+  /                    /    se teclea
+wwww ==&gt; v      v v   v   v  
+         Palabra. Son dos palabras
+           /
+          /
+      texto en el editor
+</code></pre>
+
+<p>Entonces:</p>
+<ul>
+<li>El texto <code>Palabra. Son dos palabras</code> es el texto que está dentro de tu editor y que está sujeto a cambios o navegación.</li>
+<li>Escribe el comando <code>w</code> sucesivamente (en este caso 4 veces)</li>
+<li>Cada vez que escribes el comando, se mueve el cursor (representado por <code>v</code>) a una nueva ubicación</li>
+</ul>
+<p>A veces, será útil comparar cómo funcionan dos comandos cuando se aplican sobre el mismo trozo de texto. En esos casos he usado los siguientes diagramas:</p>
+<pre><code class="text">wwww ==&gt; v      v v   v   v
+         palabra. Son dos palabras
+         palabra. Es una PALABRA
+WWW  ==&gt; ^        ^  ^   ^
+</code></pre>
+
+<p>Donde la parte inferior es similar en significado a la parte superior que discutimos anteriormente, pero por el hecho de que el cursor está representado por un cursor en forma de <code>^</code> en lugar de <code>v</code>.</p>
+<p>Al explicar los comandos, prestaremos atención a las siguientes convenciones. Para operaciones y movimientos:</p>
+<pre><code class="text">f{character}
+
+f            - f es el literal f, tal y como es
+{character}  - es el lugar que necesita ser sustituido
+               por algo. El nombre entre {} describe
+               lo que se supone que debe aparecer.
+               En este caso, un carácter.
+</code></pre>
+
+<p>Al construir y aplicar objetos de texto:</p>
+<pre><code class="text">{operator}{a|i}{text-object}
+
+{operator}    - marcador de posición
+{a|i}         - elegir entre la letra &quot;a&quot; ó &quot;i&quot;
+{text-object} - otro marcador de posición
+</code></pre>
+
+<p>Y para ex-comandos:</p>
+<pre><code class="text">:[range]s/{pattern}/{substitute}/[flags]
+
+:            - marca el comienzo de un comando ex.
+[range]      - [] denota que esta parte es opcional.
+               El nombre será descriptivo
+s            - comando literal.
+{pattern}    - marcador de posición.
+{substitute} - otro marcador de posición.
+[flags]      - otra parte opcional.
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../02_instalacion/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../02_instalacion/" class="btn btn-xs btn-link">
+        02 Instalación
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
