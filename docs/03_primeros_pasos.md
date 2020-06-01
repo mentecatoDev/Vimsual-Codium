@@ -79,11 +79,11 @@ El proceso es específico para cada sistema y habría que investigar *cómo hace
 
 Hay quien prefiere utilizar `Caps Lock` como una  alternativa más accesible para la tecla `Ctrl` dado que **Vim** usa la combinación `<Ctrl>-C` como altenativa a `Esc` como ya hemos señalado.
 
-![image-20200527111313623](/home/giganticux/.config/Typora/typora-user-images/image-20200527111313623.png)
+![image-20200527111313623](./img/image-20200527111313623.png)
 
 Si bien podríamos pensar que ya está todo listo, no es el caso. De hecho podemos comprobar que nuestro cambio se ha hecho efectivo para todo el sistema y funciona allá donde lo probemos; por ejemplo en una versión clásica de **Vim**. Pero no así en **Visual Studio Code** que presenta la característica de usar su propio *dispatcher* de teclas. Hemos de cambiar este comportamiento para que use el del propio sistema accediendo a *Settings* y cambiando la propiedad [*keyboard.dispatch*](http://github.com/microsoft/vscode/wiki/Keybinding-issues) estableciéndola en *keyCode* como se muestra en la imagen siguiente:
 
-![image-20200527110646536](/home/giganticux/.config/Typora/typora-user-images/image-20200527110646536.png)
+![image-20200527110646536](./img/image-20200527110646536.png)
 
 ## Una nota importante para usuarios de windows y Linux
 
