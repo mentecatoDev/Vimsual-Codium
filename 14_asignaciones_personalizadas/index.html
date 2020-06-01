@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>14 Asignaciones personalizadas - Vimsual Codium</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Elevando tu flujo de trabajo con asignaciones personalizadas", url: "#_top", children: [
+              {title: "\u00bfPor qu\u00e9 mapeos personalizados?", url: "#por-que-mapeos-personalizados" },
+              {title: "Crear asignaciones personalizadas", url: "#crear-asignaciones-personalizadas" },
+              {title: "Pautas para crear asignaciones personalizadas", url: "#pautas-para-crear-asignaciones-personalizadas" },
+              {title: "Personalizar la tecla l\u00edder", url: "#personalizar-la-tecla-lider" },
+              {title: "Algunas buenas asignaciones personalizadas", url: "#algunas-buenas-asignaciones-personalizadas" },
+              {title: "Crear asignaciones personalizadas para acciones vscode", url: "#crear-asignaciones-personalizadas-para-acciones-vscode" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../15_mas_rapido/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../15_mas_rapido/" class="btn btn-xs btn-link">
+        15 Más rápido
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../13_vim-surround/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../13_vim-surround/" class="btn btn-xs btn-link">
+        13 Vim-surround
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="elevando-tu-flujo-de-trabajo-con-asignaciones-personalizadas">Elevando tu flujo de trabajo con asignaciones personalizadas</h1>
+<p>Una de las mejores características de Vim es su personalización. Una forma sencilla de comenzar a personalizar Vim y una que tendrá el mayor efecto en tu codificación diaria es <strong>crear asignaciones personalizadas</strong>. Un mapeo en Vim es el equivalente a un atajo en otros editores pero con un fuerte enfoque en las melodías de teclas que son tan naturales para Vim.</p>
+<h2 id="por-que-mapeos-personalizados">¿Por qué mapeos personalizados?</h2>
+<p>Las asignaciones personalizadas son útiles por dos razones:</p>
+<ol>
+<li>Te permiten personalizar Vim y adaptarlo a tu forma de trabajo mediante la creación de asignaciones personalizadas para las cosas que utilizas con frecuencia</li>
+<li>Te permiten priorizar la funcionalidad de Vim acercándola a tu alcance. Mediante el uso de asignaciones personalizadas, puedes crear una jerarquía de comandos donde se puede acceder a los más útiles desde la productividad de su fila de inicio y a los menos útiles a través de combinaciones de teclas cómodas, pero más largas</li>
+</ol>
+<h2 id="crear-asignaciones-personalizadas">Crear asignaciones personalizadas</h2>
+<p>Puedes crear asignaciones personalizadas utilizando las preferencias de Visual Studio Code:</p>
+<ol>
+<li>Abre la paleta de comandos con <strong><code>CTRL-SHIFT-P</code></strong></li>
+<li>Escribe <em>Preferences</em></li>
+<li>Selecciona <em>Preferences: Open User Settings</em> </li>
+<li>Escribe <strong><code>vim</code></strong></li>
+</ol>
+<p>Y se filtrarán tus preferencias de Visual Studio Code para mostrar solo las relacionadas con VSCodeVim. Ahora puedes usar la siguiente configuración para agregar tus asignaciones personalizadas en diferentes modos:</p>
+<ul>
+<li><em>Normal Mode Key Bindings Non Recursive</em> para el modo Normal</li>
+<li><em>Visual Mode Key Bindings Non Recursive</em> para el modo Visual</li>
+<li><em>Insert Mode Key Bindings Non Recursive</em> para el modo Inserción</li>
+</ul>
+<p>Tener diferentes asignaciones para diferentes modos tiene sentido porque cada modo es una pizarra limpia donde puedes redefinir asignaciones para realizar tareas específicas de ese modo. Eso te permite reutilizar las teclas del estado real del teclado en cada modo y tener una funcionalidad potente al alcande de tus dedos.</p>
+<p>Ten en cuenta que esta configuración solo se puede cambiar desde la versión de la configuración en formato <strong><code>json</code></strong>:</p>
+<p><img alt="Crear asignaciones personalizadas en VSCodeVim" src="../img/vim-custom-mappings.jpg" /></p>
+<p>Un mapeo personalizado normalmente toma la siguiente forma:</p>
+<pre><code class="json">{
+  &quot;vim.insertModeKeyBindingsNonRecursive&quot;: [
+    {
+      &quot;before&quot;: [&quot;j&quot;, &quot;k&quot;],
+      &quot;after&quot;: [&quot;&lt;ESC&gt;&quot;]
+    }
+  ],
+}
+</code></pre>
+
+<p>Dónde:</p>
+<ul>
+<li><strong>before</strong> es la secuencia de comandos que se escriben.</li>
+<li><strong>after</strong> es a qué se asignan los comandos anteriores y qué se ejecuta cuando los escribes.</li>
+</ul>
+<p>En el ejemplo anterior, cada vez que escribimos la secuencia <strong><code>jk</code></strong> en <em>modo Insertar</em> será equivalente a escribir <strong><code>&lt;ESC&gt;</code></strong> y, por lo tanto, nos llevará de vuelta al <em>modo Normal</em>. Esta es una gran asignación personalizada que hace una tarea sin fisuras muy común, ya que ambos <strong><code>j</code></strong> y <strong><code>k</code></strong> están en la fila principal del teclado y simplemente debajo de tu mano derecha.</p>
+<p>Agrega esta asignación a tu configuración y verás que surte efecto tan pronto como guardes tu configuración. Ahora intenta ir al <em>modo Insertar</em> y escribe <strong><code>jk</code></strong> en una sucesión rápida. <strong><code>ijk</code></strong>, <strong><code>ijk</code></strong>, <strong><code>ijk</code></strong>...  Debe fluir suavemente como una lenta corriente o como mantequilla caliente sobre una tostada.</p>
+<h2 id="pautas-para-crear-asignaciones-personalizadas">Pautas para crear asignaciones personalizadas</h2>
+<p>La capacidad de crear asignaciones personalizadas te brinda mucha libertad y flexibilidad para definir cómo interactuar con Visual Studio Code. Pero debido a que no hay nada que lo detenga para hacer lo que quiera, puedes terminar pegándote un tiro en el pie. Aquí hay algunas reglas que te guiarán cuando crees tus propios mapeos personalizados y guardes esos preciosos dedos tuyos:</p>
+<ul>
+<li>En general, usa la tecla <strong>líder</strong> para definir tus asignaciones personalizadas. La clave <strong>líder</strong> es una tecla especial en Vim cuyo propósito es actuar como un espacio de nombres o puerta de enlace a las asignaciones definidas por el usuario. De manera predeterminada, la tecla líder se asigna a la tecla de barra diagonal inversa <strong><code>\</code></strong>.</li>
+<li>Si hay algo en tu flujo de trabajo que usas todo el tiempo, entonces está bien (de hecho se recomienda) sobrescribir un enlace Vim predeterminado que no sea muy útil. Esta es la excepción a la regla.</li>
+<li>Crea asignaciones que sean fáciles de recordar. Sigue la tradición de Vim y confía en la mnemotecnia. (¿Recuerda? <code>c</code> Para <strong>c</strong>ambio, <code>d</code> para <strong>d</strong>elete, y así...)</li>
+</ul>
+<p>Si estas reglas parecen demasiado abstractas, no te preocupes, en las siguientes secciones las haremos más prácticas ya que definimos una serie de asignaciones personalizadas que puedes agregar a tu propia configuración VSCodeVim.</p>
+<h2 id="personalizar-la-tecla-lider">Personalizar la tecla líder</h2>
+<p>Puedes cambiar la clave de líder a algo más fácil de escribir que la barra invertida <strong><code>\</code></strong> (odio tener teclas importantes asociadas a mis dedos meñiques. La tecla más indicada es posiblemente es la barra espaciadora, que se puede utilizar con ambas manos.</p>
+<p>Vea a sus preferencias de VSCode y actualiza la siguiente configuración:</p>
+<pre><code class="json">{
+&quot;vim.leader&quot;: &quot;&lt;Space&gt;&quot;,
+}
+</code></pre>
+
+<p>De ahora en adelante, cada vez que veas un mapeo personalizado que se refiera a <strong><code>&lt;leader&gt;</code></strong>, debes traducirlo en tu cabeza por <strong><code>&lt;Space&gt;</code></strong>.</p>
+<h2 id="algunas-buenas-asignaciones-personalizadas">Algunas buenas asignaciones personalizadas</h2>
+<p>Aquí hay algunos otros excelentes ejemplos de mapeos útiles:</p>
+<h3 id="moverse-hacia-arriba-y-hacia-abajo-mas-rapido-en-modo-normal">Moverse hacia arriba y hacia abajo más rápido en modo normal</h3>
+<p>Estas asignaciones te permiten moverte hacia arriba y abajo más rápido en <em>modo Normal</em> (aunque son igual de útiles en <em>modo Visual</em> ):</p>
+<pre><code class="json">{
+  &quot;vim.normalModeKeyBindingsNonRecursive&quot;: [
+    {
+      &quot;before&quot;: [&quot;J&quot;],
+      &quot;after&quot;: [&quot;5&quot;, &quot;j&quot;]
+    },
+    {
+      &quot;before&quot;: [&quot;K&quot;],
+      &quot;after&quot;: [&quot;5&quot;, &quot;k&quot;]
+    },
+  ]
+}
+</code></pre>
+
+<p>De ahora en adelante podrás usar:</p>
+<ul>
+<li><strong><code>J</code></strong> bajar más rápido</li>
+<li><strong><code>K</code></strong> subir más rápido</li>
+</ul>
+<p>Esto coincide perfectamente con la idea de Vim de que los comandos en mayúsculas sean versiones <em>más fuertes</em> de los comandos en minúsculas. Es decir, <strong><code>J</code></strong> te permite moverte más rápido que <strong><code>j</code></strong> y <strong><code>K</code></strong> más rápido que <strong><code>k</code></strong>.</p>
+<p>Aquí hemos sobrescrito dos enlaces predeterminados de Vim porque navegar por el código hacia arriba y hacia abajo; es algo que harás todo el tiempo. Mientras que <strong><code>J</code></strong>(unir líneas), aunque es útil, es algo que solo haces de vez en cuando. <strong><code>K</code></strong> se usa para la búsqueda de palabras clave pero aún no se ha implementado en VSCodeVim.</p>
+<h3 id="seguir-uniendo-lineas">Seguir uniendo líneas</h3>
+<p>Unir líneas sigue siendo útil, así que vamos a mantenerlo. Aunque rebajaremos su importancia en la jerarquía haciéndolo un poco más difícil de escribir.</p>
+<p>Actualice su configuración de VSCodeVim para incluir esta nueva asignación:</p>
+<pre><code class="json">{
+  &quot;vim.normalModeKeyBindingsNonRecursive&quot;: [
+    {
+      &quot;before&quot;: [&quot;&lt;Leader&gt;&quot;, &quot;j&quot;],
+      &quot;after&quot;: [&quot;J&quot;]
+    },
+  ]
+}
+</code></pre>
+
+<p>Entonces, cada vez que escribas <strong><code>&lt;Leader&gt;j</code></strong>, Vim lo traducirá por <strong><code>J</code></strong> y unirá dos líneas. ¡Pruébalo!</p>
+<p><strong><code>&lt;Leader&gt;j</code></strong> no es tan rápido como simplemente escribir, <strong><code>J</code></strong> pero es lo suficientemente bueno en función de la frecuencia con la que unirás líneas. La mnemónica en este caso es <strong>j</strong>oin.</p>
+<h3 id="cambio-mas-facil-entre-ventanas-divididas">Cambio más fácil entre ventanas divididas</h3>
+<p>Cambiar ventanas divididas es algo que harás todo el tiempo, así que prueba estos enlaces:</p>
+<pre><code class="json">{
+  &quot;vim.normalModeKeyBindingsNonRecursive&quot;: [
+    {
+      &quot;before&quot;: [&quot;&lt;C-h&gt;&quot;],
+      &quot;after&quot;: [&quot;&lt;C-w&gt;&quot;, &quot;h&quot;]
+    },
+    {
+      &quot;before&quot;: [&quot;&lt;C-j&gt;&quot;],
+      &quot;after&quot;: [&quot;&lt;C-w&gt;&quot;, &quot;j&quot;]
+    },
+    {
+      &quot;before&quot;: [&quot;&lt;C-k&gt;&quot;],
+      &quot;after&quot;: [&quot;&lt;C-w&gt;&quot;, &quot;k&quot;]
+    },
+    {
+      &quot;before&quot;: [&quot;&lt;C-l&gt;&quot;],
+      &quot;after&quot;: [&quot;&lt;C-w&gt;&quot;, &quot;l&quot;]
+    }]
+}
+</code></pre>
+
+<p>Te harán mucho más rápido y ágil cuando atravieses divisiones porque requieren una pulsación de tecla menos.</p>
+<h3 id="manejo-de-pestanas-mas-facil">Manejo de pestañas más fácil</h3>
+<p>La única forma de interactuar con pestañas en VSCodeVim es a través de comandos que requieren que escribas dos puntos seguidos de un montón de letras.</p>
+<p>Podemos hacerlo mejor:</p>
+<pre><code class="json">{
+  &quot;vim.normalModeKeyBindingsNonRecursive&quot;: [
+    {
+      &quot;before&quot;: [&quot;&lt;Leader&gt;&quot;, &quot;t&quot;, &quot;t&quot;],
+      &quot;commands&quot;: [&quot;:tabnew&quot;]
+    },
+    {
+      &quot;before&quot;: [&quot;&lt;Leader&gt;&quot;, &quot;t&quot;, &quot;n&quot;],
+      &quot;commands&quot;: [&quot;:tabnext&quot;]
+    },
+    {
+      &quot;before&quot;: [&quot;&lt;Leader&gt;&quot;, &quot;t&quot;, &quot;p&quot;],
+      &quot;commands&quot;: [&quot;:tabprev&quot;]
+    },
+    {
+      &quot;before&quot;: [&quot;&lt;Leader&gt;&quot;, &quot;t&quot;, &quot;o&quot;],
+      &quot;commands&quot;: [&quot;:tabo&quot;]
+    }]
+}
+</code></pre>
+
+<p>Aprovechando la tecla <strong><code>&lt;Leader&gt;</code></strong>, ahora podemos abrir nuevas pestañas, movernos y cerrar todas las pestañas excepto la actual.</p>
+<p><strong>¿Notaste algo diferente acerca de estas asignaciones personalizadas?</strong></p>
+<p>¡Exactamente! Utiliza una sintaxis ligeramente diferente al asignar teclas a comandos. En lugar de usar <strong><code>before</code></strong> y <strong><code>after</code></strong>. Usamos <strong><code>before</code></strong> y <strong><code>commands</code></strong>. <strong><code>commands</code></strong> representa los comandos Ex o los comandos nativos de Visual Studio que deben ejecutarse cada vez que escribimos la asignación de teclas definida por <strong><code>before</code></strong>.</p>
+<h3 id="limpieza-de-texto-resaltado">Limpieza de texto resaltado</h3>
+<p>Cuando busques patrones en Vim utilizando los comandos <strong><code>/{pattern}</code></strong> y <strong><code>?{pattern}</code></strong>, se resaltarán los patrones coincidentes. Para eliminar los resaltados, puedes usar el comando <strong><code>:noh</code></strong>(<em>sin resaltado</em>).</p>
+<p>Esta es una tarea tan común que prefiero la siguiente asignación:</p>
+<pre><code class="json">{
+  &quot;vim.normalModeKeyBindingsNonRecursive&quot;: [
+    {
+      &quot;before&quot;: [&quot;&lt;Leader&gt;&quot;, &quot;/&quot;],
+      &quot;commands&quot;: [&quot;:noh&quot;]
+    }]
+}
+</code></pre>
+
+<p>Ahora puedes escribir <strong><code>&lt;Leader&gt;/</code></strong> y deshacerte de los resaltados hasta tu próxima búsqueda. El mnemónico es el <strong>/</strong> que normalmente se usa para buscar un patrón. Por lo tanto, puede pensar <strong><code>/{pattern}</code></strong> en algo que haces para comenzar una búsqueda y <strong><code>/</code></strong> como algo que haces cuando terminas una búsqueda.</p>
+<h2 id="crear-asignaciones-personalizadas-para-acciones-vscode">Crear asignaciones personalizadas para acciones vscode</h2>
+<p>Otra cosa genial que puedes hacer con VSCode es usar asignaciones de Vim que activen los comandos nativos de Visual Studio Code. Por ejemplo, el siguiente enlace:</p>
+<pre><code class="json">{
+  &quot;vim.normalModeKeyBindingsNonRecursive&quot;: [
+    {
+      &quot;before&quot;: [&quot;leader&quot;, &quot;w&quot;],
+      &quot;commands&quot;: [
+          &quot;workbench.action.files.save&quot;,
+      ]
+    }
+}
+</code></pre>
+
+<p>Vamos a guardar un archivo mediante la <strong><code>w</code></strong> activación de la acción de VSCode <code>"workbench.action.files.save"</code>.</p>
+<blockquote>
+<h3 id="como-encontrar-los-nombres-de-los-comandos">¿Cómo encontrar los nombres de los comandos?</h3>
+<p>Descubrir qué comando hace qué en VSCode no es realmente evidente, es decir, si hubiera querido saber que guardar cosas en VSCode es <code>workbench.action.files.save</code> difícilmente lo habría adivinado. Entonces, ¿dónde puedes encontrar esa información oscura?</p>
+<p>Abre la paleta de comandos, escribe <em>keyboard</em> y selecciona <em>Preferences: Open Keyboard Shortcuts</em>. Allí encontrarás todos los comandos que están disponibles dentro de VSCode, incluido su nombre de comando completo. Úsalos siempre que desees crear asignaciones personalizadas para acciones nativas de VSCode.</p>
+<p><strong>Advertencia</strong> : cuando buscas un comando, el nombre completo del comando solo se mostrará si la condición del filtro es parte del nombre. Si el nombre del comando no se muestra después del filtrado, puedes pasar el mouse sobre el nombre del comando y una información sobre las herramientas revelará su nombre completo.</p>
+</blockquote>
+<p>Veamos otro ejemplo. Hay cuatro características en VSCode que encuentro extremadamente útiles:</p>
+<ul>
+<li>La <strong>paleta de comandos</strong> (<code>CTRL-SHIFT-P</code>)</li>
+<li><strong>Ir al archivo</strong> (<code>CTRL-P</code>)</li>
+<li><strong>Ir al símbolo en el archivo</strong> (<code>CTRL-SHIFT-O</code>)</li>
+<li><strong>Ir al símbolo en el espacio de trabajo</strong> (<code>CTRL-T</code>)</li>
+</ul>
+<p>La <em>paleta de comandos</em> y el <em>símbolo Ir al archivo</em> son particularmente difíciles de escribir, así que creemos una asignación personalizada para mantener nuestras muñecas saludables:</p>
+<pre><code class="json">{
+  &quot;vim.normalModeKeyBindingsNonRecursive&quot;: [
+    {
+      &quot;before&quot;: [&quot;&lt;Leader&gt;&quot;, &quot;p&quot;],
+      &quot;commands&quot;: [
+          &quot;workbench.action.showCommands&quot;,
+      ]
+    },
+    {
+      &quot;before&quot;: [&quot;&lt;Leader&gt;&quot;, &quot;t&quot;],
+      &quot;commands&quot;: [
+          &quot;workbench.action.gotoSymbol&quot;,
+      ]
+    }
+  ]
+}
+</code></pre>
+
+<p>Ahora ya no necesitas retorcer los dedos para abrir la <em>paleta de comandos</em> o <em>ir al símbolo</em>. Simplemente escribe <strong><code>&lt;Leader&gt;p</code></strong> y <strong><code>&lt;Leader&gt;t</code></strong> respectivamente y accederás rápidamente a cualquiera de estos paneles. Yihoo!</p>
+<p>Hay muchas más asignaciones interesantes y útiles en la <a href="https://github.com/VSCodeVim/Vim#key-remapping">documentación de VSCodeVim. ¡Échale un vistazo!</a>. Pero recuerda ser crítico. Antes de agregar un mapeo personalizado en tu configuración de VSCodeVim, considera si ofrece un mejor flujo de trabajo que el que usas actualmente. Nunca agregues cosas a tu configuración a ciegas.</p>
+<p><strong>Una parte importante de ser más eficaz con Vim es tener en cuenta tu flujo de trabajo de desarrollo. Revisando tu configuración de Vim de vez en cuando, y agregando nuevas asignaciones que mejoren tu forma de trabajar. Por lo tanto, tenlo en cuenta a partir de ahora y mantén tu configuración Vim muy nítida.</strong></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../15_mas_rapido/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../15_mas_rapido/" class="btn btn-xs btn-link">
+        15 Más rápido
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../13_vim-surround/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../13_vim-surround/" class="btn btn-xs btn-link">
+        13 Vim-surround
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -136,9 +136,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Desplegamos <em>Comportamiento de Bloq Mayús</em> y seleccionamos el que más nos interese; en este caso <strong>Intercambiar Esc y Bloq Mayús</strong> si bien se podría haber elegido <strong>Hacer de Bloq Mayús un Esc adicional</strong> ó <strong>Make unmodified Caps Lock an additional Esc, but Shift + Caps Lock behaves like regular Caps Lock</strong>.</li>
 </ul>
 <p>Hay quien prefiere utilizar <code>Caps Lock</code> como una  alternativa más accesible para la tecla <code>Ctrl</code> dado que <strong>Vim</strong> usa la combinación <code>&lt;Ctrl&gt;-C</code> como altenativa a <code>Esc</code> como ya hemos señalado.</p>
-<p><img alt="image-20200527111313623" src="/home/giganticux/.config/Typora/typora-user-images/image-20200527111313623.png" /></p>
+<p><img alt="image-20200527111313623" src="../img/image-20200527111313623.png" /></p>
 <p>Si bien podríamos pensar que ya está todo listo, no es el caso. De hecho podemos comprobar que nuestro cambio se ha hecho efectivo para todo el sistema y funciona allá donde lo probemos; por ejemplo en una versión clásica de <strong>Vim</strong>. Pero no así en <strong>Visual Studio Code</strong> que presenta la característica de usar su propio <em>dispatcher</em> de teclas. Hemos de cambiar este comportamiento para que use el del propio sistema accediendo a <em>Settings</em> y cambiando la propiedad <a href="http://github.com/microsoft/vscode/wiki/Keybinding-issues"><em>keyboard.dispatch</em></a> estableciéndola en <em>keyCode</em> como se muestra en la imagen siguiente:</p>
-<p><img alt="image-20200527110646536" src="/home/giganticux/.config/Typora/typora-user-images/image-20200527110646536.png" /></p>
+<p><img alt="image-20200527110646536" src="../img/image-20200527110646536.png" /></p>
 <h2 id="una-nota-importante-para-usuarios-de-windows-y-linux">Una nota importante para usuarios de windows y Linux</h2>
 <p>Espera... ¿<code>&lt;CTRL&gt;-C</code> para volver al <strong>modo Normal</strong>? ¿No es eso lo que he estado usando toda la vida para copiar cosas?</p>
 <p>Instalar VSCodeVIM tiene un par de efectos secundarios. Una es que obtienes ese extraño cursor cuadrado que acabamos de comentar, y la otra es que algunas teclas de uso común se reasignan a su función natural en la tierra de VIM. Por ejemplo:</p>
