@@ -1,4 +1,4 @@
-# Mudarse aún más rápido con vim surround e easymotion
+# Mudarse aún más rápido con Vim-Sneak y Vim-EasyMotion
 
 [Vim-sneak](https://github.com/justinmk/vim-sneak) y [vim-EasyMotion](https://github.com/easymotion/vim-easymotion) son un par de complementos de Vim que aumentan la velocidad con la que puedes moverte en Vim.
 
