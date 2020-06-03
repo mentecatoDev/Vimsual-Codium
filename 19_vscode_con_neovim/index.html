@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>19 VSCode con Neovim - Vimsual Codium</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Integrando vscode con neovim", url: "#_top", children: [
+              {title: "Instalando neovim", url: "#instalando-neovim" },
+              {title: "Habilitar neovim dentro de vscode", url: "#habilitar-neovim-dentro-de-vscode" },
+              {title: "Usando el Neovim de VSCode", url: "#usando-el-neovim-de-vscode" },
+              {title: "Copiar y mover l\u00edneas alrededor", url: "#copiar-y-mover-lineas-alrededor" },
+              {title: "El comando normal", url: "#el-comando-normal" },
+              {title: "El comando global", url: "#el-comando-global" },
+              {title: "Una advertencia de eliminaci\u00f3n a tener en cuenta", url: "#una-advertencia-de-eliminacion-a-tener-en-cuenta" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../18_explorador_de_archivos/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../18_explorador_de_archivos/" class="btn btn-xs btn-link">
+        18 Explorador de archivos
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="integrando-vscode-con-neovim">Integrando vscode con neovim</h1>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Advertencia: característica experimental</p>
+<p>Esta es una característica experimental en VSCodeVim. A veces, puede dar lugar a un comportamiento inesperado. Las cosas más nefastas que he visto hacer es mostrar mensajes de error o no hacer lo que le ordené. Ambos son irritantes, pero nada que destruya tu computadora.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Una última forma de mejorar su experiencia VSCodeVim es mediante la integración con Neovim, la bifurcación moderna de Vim. Cuando se integra ambos editores, VSCodeVim usará Neovim para ejecutar todos los <em>comandos del modo de línea de</em> comandos. Esto dará como resultado una ejecución de comandos más rápida y la adición de una gran cantidad de comandos útiles a tu arsenal VSCodeVim.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>¿Qué es Neovim?</p>
+<p>Neovim es una bifurcación moderna de Vim que tiene como objetivo refactorizar Vim y hacer que sea más fácil de mantener, extensible y más fácil de contribuir por una comunidad más amplia. Su principal innovación sobre el Vim tradicional fue que soportaba procesamiento asíncrono, un terminal integrado y complementos externos. Vim 8 más tarde se puso al día con soporte para procesamiento asíncrono y un terminal integrado, pero Neovim sigue siendo muy relevante.</p>
+<p>De hecho, sigue siendo muy activo, saludable y supera los límites: su soporte para complementos externos escritos en JavaScript a través de node.js es una gran ayuda para crear una comunidad aún más inclusiva de escritores de complementos. Su modo sin cabeza permite que las aplicaciones GUI (como Visual Studio Code u <a href="https://www.onivim.io/">Oni</a>) consuman Vim como servicio. Su enfoque como una gran experiencia de usuario ha traído nuevas características interesantes a Vim, como líneas virtuales con mensajes en el editor, tal como lo que se espera de los editores de texto modernos. Finalmente, sus valores predeterminados más sensibles lo convierten en un editor más accesible que el Vim original.</p>
+<p>Además, la mera existencia de Neovim como competidor de Vim es algo saludable para la comunidad en general. Por ejemplo, características como el terminal integrado o el procesamiento asíncrono se agregaron a Vim después de que estuvieron disponibles en Neovim.</p>
+<p>Puedes encontrar más información sobre Neovim en <a href="https://neovim.io/">neovim.io</a>.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="instalando-neovim">Instalando neovim</h2>
+<p>Neovim, al igual que Vim, es compatible con <a href="https://github.com/neovim/neovim/wiki/Installing-Neovim">muchos sistemas operativos</a> . Para instalar Neovim, usa el administrador de paquetes favorito de tu sistema operativo de elección. Por ejemplo:</p>
+<h3 id="instalar-neovim-en-arch">Instalar neovim en Arch</h3>
+<p>Para instalar la última versión de Neovim en Arch y derivadas (Arcolinux, Manjaro...) usa lo siguiente:</p>
+<pre><code class="bash">$ pacman -S neovim
+</code></pre>
+
+<h3 id="instalar-neovim-en-ubuntu-o-debian">Instalar neovim en ubuntu o debian</h3>
+<p>Para instalar la última versión de Neovim en Ubuntu o Debian usa lo siguiente:</p>
+<pre><code class="bash">$ sudo apt-get update
+$ sudo apt-get install software-properties-common -y
+$ sudo add-apt-repository ppa:neovim-ppa/stable
+$ sudo apt-get update
+$ sudo apt-get install neovim -y
+</code></pre>
+
+<h3 id="instalar-neovim-en-mac-osx">Instalar neovim en mac osx</h3>
+<p>La forma más sencilla de obtener Neovim en OSX es usar <a href="https://brew.sh/">Homebrew</a> :</p>
+<pre><code class="bash">$ brew install neovim
+</code></pre>
+
+<h3 id="instalar-neovim-en-windows">Instalar neovim en windows</h3>
+<p>La forma más sencilla de instalar Neovim en Windows es usar el administrador de paquetes <a href="https://chocolatey.org/">Chocolatey</a>. Escribe:</p>
+<pre><code class="powershell">PS&gt; choco install neovim -y
+</code></pre>
+
+<h3 id="instalar-neovim-en-otros-sistemas-operativos">Instalar neovim en otros sistemas operativos</h3>
+<p>El <a href="https://github.com/neovim/neovim/wiki/Installing-Neovim">Wiki de Neovim</a> tiene instrucciones detalladas sobre cómo instalar Neovim en muchos sistemas operativos, utilizando un administrador de paquetes o construyendolo desde la fuente. Si tu sistema operativo no es uno de los anteriores, teletransportate a <a href="https://github.com/neovim/neovim/wiki/Installing-Neovim">la Wiki de Neovim</a> y sigue las instrucciones.</p>
+<h2 id="habilitar-neovim-dentro-de-vscode">Habilitar neovim dentro de vscode</h2>
+<p>Una vez que hayas instalado Neovim en tu sistema operativo, puedes habilitarlo dentro de VSCode desde la ventana <em>Preferences: Settings</em>: </p>
+<ol>
+<li>Habilita la opción <em>Vim: Enable Neovim</em> ( <code>vim.enableNeovim</code>)</li>
+<li>Establezca el camino a Neovim dentro de la configuración <em>Vim: Neovim Path</em> (<code>vim.neovimPath</code>) al valor de tu sistema (típicamente /usr/bin/nvim)</li>
+<li>Reiniciar VSCode</li>
+</ol>
+<p>Por ejemplo, si estás usando Arch, tu configuración se vería así:</p>
+<pre><code class="json">{
+  &quot;vim.neovimPath&quot;: &quot;/usr/bin/nvim&quot;,
+  &quot;vim.enableNeovim&quot;: true
+}
+</code></pre>
+
+<h2 id="usando-el-neovim-de-vscode">Usando el Neovim de VSCode</h2>
+<p>Una vez que se habilita la integración, cada vez que ejecutes un comando Ex, se ejecutará dentro de Neovim y sus efectos se reflejarán en Visual Studio Code. En esencia, la ejecución de un comando Ex seguirá estos pasos:</p>
+<ol>
+<li>Copia el contenido de tu archivo dentro de Neovim.</li>
+<li>Ejecuta el comando en Neovim.</li>
+<li>Vuelve a sincronizar los resultados con Visual Studio Code.</li>
+</ol>
+<p>Esto significa que los comandos interactivos como <strong><code>:change</code></strong> (o <strong><code>substitute</code></strong> con la bandera <strong><code>c</code></strong>) no funcionará con el estado actual experimental de esta integración, pero otros como <strong><code>:move</code></strong>, <strong><code>:normal</code></strong>, <strong><code>:global</code></strong>, y la mayoría de los casos de uso de <strong><code>:substitute</code></strong>trabajo fino voluntad.</p>
+<h2 id="copiar-y-mover-lineas-alrededor">Copiar y mover líneas alrededor</h2>
+<p>Con los comandos <strong><code>:copy</code></strong> o <strong><code>:move</code></strong> puedes copiar o mover rápidamente un rango de líneas de una parte del documento a otra. Utiliza cualquiera de estos comandos de la siguiente manera:</p>
+<pre><code class="vim">:[range]copy {address}
+:[range]move {address}
+</code></pre>
+
+<p>Donde:</p>
+<ul>
+<li><strong><code>range</code></strong> define el rango que queremos copiar o mover.</li>
+<li><strong><code>address</code></strong> define el destino de la línea objetivo de lo que copiamos o movemos.</li>
+</ul>
+<p>Por ejemplo:</p>
+<ul>
+<li><strong><code>:,+3c $</code></strong> copia la línea actual y las 3 líneas siguientes al final del archivo.</li>
+<li><strong><code>:,+3m $</code></strong> como arriba pero mueve las líneas en su lugar.</li>
+</ul>
+<p>Ambos comandos admiten atajos:</p>
+<ul>
+<li><strong><code>:t</code></strong> o <strong><code>:co</code></strong> son equivalentes a <strong><code>:copy</code></strong>.</li>
+<li><strong><code>:m</code></strong> es equivalente a <strong><code>:move</code></strong>.</li>
+</ul>
+<h2 id="el-comando-normal">El comando normal</h2>
+<p>El comando <strong><code>:normal</code></strong> (abreviatura <strong><code>:norm</code></strong>) te permite <strong>ejecutar una colección arbitraria de comandos del modo Normal en varias líneas a la vez</strong>. Se define así:</p>
+<pre><code class="vim">:[range]normal {commands}
+</code></pre>
+
+<p>Imagina que encuentras un archivo JavaScript cuyas líneas no tienen punto y coma. ¡Oh no! ¡Malditos hipsters JavaScript!. Puedes remediar esta parodia usando el comando <strong><code>:normal</code></strong> de esta forma:</p>
+<pre><code class="vim">:%norm A;
+</code></pre>
+
+<p>Que agrega punto y coma a todas las líneas dentro de un archivo. Esta es, sin lugar a dudas, una forma más rápida de agregar punto y coma que usar:</p>
+<ol>
+<li>Para <strong><code>A;</code></strong> agregar un punto y coma, en combinación con,</li>
+<li>los comandos <strong><code>j.</code></strong> para bajar una línea y repetir el último cambio.</li>
+</ol>
+<p>Veamos un ejemplo un poco más complicado. Imagina que tienes una lista de armas mágicas que se viera así:</p>
+<pre><code class="html">&lt;ul&gt;
+  &lt;li&gt;Sword of Truth&lt;/li&gt;
+  &lt;li&gt;Fire Lance&lt;/li&gt;
+  &lt;li&gt;Shardblade&lt;/li&gt;
+  &lt;li&gt;Poisoned Dagger of Despair&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>Pero ahora queremos mejorar la utilidad de esta lista y agregar algunos enlaces a lugares de Wizardsphere donde alguien podría adquirir algunos de estos elementos.</p>
+<p>Simplifiquemos el problema agregando un enlace a un solo elemento  <strong><code>li</code></strong>:</p>
+<pre><code class="html">  &lt;li&gt;Sword of Truth&lt;/li&gt;
+^
+</code></pre>
+
+<p>Podríamos <strong><code>w</code></strong> para mover el cursor sobre el elemento y <strong><code>cit</code></strong> cambiar su contenido. Ahora escribe <strong><code>&lt;a href=""&gt;&lt;ESC&gt;</code></strong>:</p>
+<pre><code class="html">  &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/li&gt;
+                ^
+</code></pre>
+
+<p>Luego, usa <strong><code>p</code></strong> para pegar los contenidos anteriores de <strong><code>li</code></strong>:</p>
+<pre><code class="html">  &lt;li&gt;&lt;a href=&quot;&quot;&gt;Sword of Truth&lt;/li&gt;
+                              ^
+</code></pre>
+
+<p>Y finalmente <strong><code>a</code></strong>:</p>
+<pre><code class="html">  &lt;li&gt;&lt;a href=&quot;&quot;&gt;Sword of Truth&lt;/a&gt;&lt;/li&gt;
+                                  ^
+</code></pre>
+
+<p>¡Tada! La serie completa de comandos fue:</p>
+<pre><code class="text">wcit&lt;a href=&quot;&quot;&gt;&lt;ESC&gt;pa&lt;/a&gt;&lt;ESC
+</code></pre>
+
+<p>Así que, ahora que hemos resuelto este problema para una sola línea, deberíamos poder aplicar el mismo comando a todos los elementos <strong><code>li</code></strong> de nuestra lista aprovechando el comando <strong><code>:normal</code></strong>:</p>
+<pre><code class="text">:%normal wcit&lt;a href=&quot;&quot;&gt;&lt;ESC&gt;pa&lt;/a&gt;&lt;ESC
+</code></pre>
+
+<p>Inténtalo tú mismo. ¿Que pasó? No es lo que esperabas, eso es seguro. Esto debería ser el resultado de ejecutar el comando anterior:</p>
+<pre><code class="html">&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;ESC&gt;pa&lt;/a&gt;&lt;ESC&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;ESC&gt;pa&lt;/a&gt;&lt;ESC&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;ESC&gt;pa&lt;/a&gt;&lt;ESC&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;ESC&gt;pa&lt;/a&gt;&lt;ESC&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>¿Puedes ver el problema? ¡Exactamente! Todos los caracteres han sido tomados literalmente. El <strong><code>&lt;ESC&gt;</code></strong> no funcionó y, por lo tanto, nunca salimos del <em>modo Insertar</em>, que explica los resultados anteriores.</p>
+<p>Esto muestra una de las limitaciones del comando <strong><code>:normal</code></strong>: no comprende teclas especiales como <strong><code>&lt;ENTER&gt;</code></strong> o acordes <strong><code>&lt;C-&gt;</code></strong>. Afortunadamente, hay una manera de resolver estos casos de uso con la ayuda del comando <strong><code>:execute</code></strong>.</p>
+<p>El comando <strong><code>:execute</code></strong> (abreviatura <strong><code>:exe</code></strong>) te permite evaluar una expresión de cadena como un comando ex. Es como el <strong><code>eval</code></strong> de Vim. Usando <strong><code>:execute</code></strong> podemos usar el comando <strong><code>:normal</code></strong> junto con teclas especiales de la siguiente manera:</p>
+<pre><code class="text">:execute &quot;%normal wcit&lt;a href=\&quot;\&quot;&gt;\&lt;ESC&gt;pa&lt;/a&gt;\&lt;ESC&gt;&quot;
+</code></pre>
+
+<p>Observa cómo los comandos de ejecución nos permiten usar teclas especiales, como <strong><code>&lt;ESC&gt;</code></strong> escapándolas con una barra diagonal inversa. Observa también cómo, debido a que toda la expresión es una cadena, debemos escapar de las comillas dobles que puedan aparecer.</p>
+<p>En resumen:</p>
+<ul>
+<li>El comando <strong><code>:normal</code></strong> te permite aplicar comandos arbitrarios de <em>modo Normal</em> en varias líneas a la vez. Sin embargo, por sí solo, no admite teclas especiales, lo que limita su uso.</li>
+<li>Úsa <strong><code>:normal</code></strong> en combinación con el comando <strong><code>:execute</code></strong> cuando tu secuencia de comandos de modo normal incluya teclas especiales</li>
+</ul>
+<h2 id="el-comando-global">El comando global</h2>
+<p>El comando <strong><code>:global</code></strong> (abreviatura <strong><code>:g</code></strong>) te permite <strong>ejecutar cualquier comando Ex en líneas que coincidan con un patrón dado</strong>. Es como una versión genérica de <strong><code>:s</code></strong> que, en lugar de simplemente sustituir un patrón por otra cosa, te permite hacer casi cualquier cosa.</p>
+<p>La forma del comando <strong><code>:global</code></strong> debería serte familiar en este momento:</p>
+<pre><code class="text">:[range]g[lobal]/{pattern}/[cmd]
+</code></pre>
+
+<p>Así:</p>
+<ul>
+<li>Se define un lugar <strong><code>range</code></strong> donde aplicar el comando <strong><code>:g</code></strong> y luego,</li>
+<li>dentro de ese rango, el comando <strong><code>cmd</code></strong> se aplicará solo a aquellas líneas que coincidan con el <strong><code>pattern</code></strong>.</li>
+</ul>
+<p>El rango predeterminado para el comando <strong><code>:g</code></strong> es todo el documento, por lo que <strong><code>:g</code></strong> es equivalente a <strong><code>:1,$g</code></strong> o <strong><code>:%g</code></strong>. Esto es apropiado: justamente el comando se llama <em>global</em> por algo.</p>
+<p>Con el comando <strong><code>:global</code></strong> ahora podemos eliminar o copiar líneas que coinciden con un patrón específico. Por ejemplo, podemos crear un esquema de un documento de descuento copiando (tirando) todos los títulos y almacenándolos en un registro de la siguiente manera:</p>
+<pre><code class="vim">:g/^#/y A
+</code></pre>
+
+<p>Lo que significa que:</p>
+<ul>
+<li>para cada línea que coincida con este patrón <strong><code>^#</code></strong> (un título resumido),</li>
+<li>ejecuta el comando <strong><code>:y A</code></strong>, que significa: Copia la línea actual y añádela al registro <strong><code>a</code></strong> (¿recuerdas? Un registro en mayúscula significa usarla para agregar en lugar de reemplazar su contenido).</li>
+</ul>
+<p>Ahora puedes pegar el contorno en otro archivo escribiendo <strong><code>:put a</code></strong> (o simplemente <strong><code>"ap</code></strong> en <em>modo Normal</em> ).</p>
+<p>El comando <strong><code>:global</code></strong> es especialmente útil cuando se combina con el comando <strong><code>:normal</code></strong> porque te permite <strong>ejecutar un número arbitrario de comandos en *modo Normal* solo cuando se cumple una determinada condición</strong>.</p>
+<p>Por lo tanto, podríamos refinar nuestro dispositivo de adición de punto y coma anterior para agregar solo un punto y coma cuando no encuentre uno al final de una línea de esta manera:</p>
+<pre><code class="vim">:g!/;$/norm A;
+</code></pre>
+
+<p>O podríamos definir un comando que disminuya la profundidad de los capítulos de reducidos como este:</p>
+<pre><code class="vim">:g/^#/norm 0x
+</code></pre>
+
+<p>Usando los comandos <strong><code>:global</code></strong> y <strong><code>:normal</code></strong> juntos, el único límite de lo que puedes lograr está determinado por tu propia imaginación.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p><code>global</code> vs <code>global!</code></p>
+<p>¿Notaste el <code>:g!</code> del ejemplo anterior? Cuando usamos <code>:global!</code> en lugar del comando Ex <code>:global</code> que definimos, se aplica solo en las líneas que <strong>no</strong> coinciden con el patrón que especificamos.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="una-advertencia-de-eliminacion-a-tener-en-cuenta">Una advertencia de eliminación a tener en cuenta</h2>
+<p>Cuando habilites la integración de Neovim, el comando <strong><code>:delete</code></strong> se ejecutará dentro de Neovim y usará sus registros. Estos registros no se comparten con VSCodeVim y, por lo tanto, no podrás inspeccionarlos mediante el comando <code>:reg</code>. No obstante, puedes confiar en el hecho de que todavía están allí. Así que la siguiente secuencia funcionará como se espera:</p>
+<ol>
+<li><code>:0,+3d a</code> elimina las primeras tres líneas en el registro <code>a</code></li>
+<li><code>:$put a</code> pega el contenido del registro <code>a</code> (las tres líneas que eliminamos anteriormente) al final del archivo</li>
+</ol>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../18_explorador_de_archivos/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../18_explorador_de_archivos/" class="btn btn-xs btn-link">
+        18 Explorador de archivos
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

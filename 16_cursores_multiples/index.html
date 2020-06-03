@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>16 Cursores múltiples - Vimsual Codium</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Cursores m\u00faltiples", url: "#_top", children: [
+              {title: "Agregar m\u00faltiples cursores basados en la b\u00fasqueda por palabras", url: "#agregar-multiples-cursores-basados-en-la-busqueda-por-palabras" },
+              {title: "Agregar m\u00faltiples cursores en l\u00edneas consecutivas", url: "#agregar-multiples-cursores-en-lineas-consecutivas" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../17_macros/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../17_macros/" class="btn btn-xs btn-link">
+        17 Macros
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../15_mas_rapido/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../15_mas_rapido/" class="btn btn-xs btn-link">
+        15 Más rápido
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="cursores-multiples">Cursores múltiples</h1>
+<p>Si eres un usuario incondicional de Visual Studio Code, es probable que uses varios cursores. VSCodeVim ofrece un soporte experimental para múltiples cursores en modos <em>Visual</em> y <em>Normal</em>. Con esta función experimental (que está habilitada de manera predeterminada), puedes generar múltiples cursores y luego usar operadores para liberar el poder de Vim en múltiples ubicaciones a la vez. <strong>¡GUAUU!</strong></p>
+<h2 id="agregar-multiples-cursores-basados-en-la-busqueda-por-palabras">Agregar múltiples cursores basados en la búsqueda por palabras</h2>
+<p>Si deseas <strong>agregar múltiples cursores basados en la búsqueda por palabras</strong> debes:</p>
+<ol>
+<li>Mover el cursor sobre una palabra de tu código.</li>
+<li>Escribir <strong><code>CTRL-D</code></strong> o <strong><code>gb</code></strong> para agregar otro cursor. Esto pone a Vim en <em>modo Visual</em> y listo para operar en la palabra que has seleccionado.</li>
+<li>Escribe <strong><code>CTRL-D</code></strong> o <strong><code>gb</code></strong> continúa agregando cursores hasta que hayas terminado.</li>
+<li>Ahora puedes realizar una acción en <em>modo Visual</em> (eliminar, cambiar, etc.) o,</li>
+<li>Regresar al <em>modo Normal</em> con <strong><code>&lt;ESC&gt;</code></strong> y escribir cualquier comando del <em>modo Normal</em> manteniendo los múltiples cursores.</li>
+</ol>
+<p>Un posible caso de uso para múltiples cursores sería renombrar algo. Imagina que tienes una función que cambia el nombre de cosas, como las propiedades dentro de los objetos en JavaScript. Digamos que tienes este hermoso objeto que <strong>me</strong> representa a <strong>mí</strong>:</p>
+<pre><code class="javascript">const paco= {
+  name: 'Paco',
+  attributes: ['handsome', 'smart', 'witty']
+};
+</code></pre>
+
+<p>Y algún día te cansas de toda esta auto adoración y narcisismo y quieres vengarte. Entonces decides cambiar el nombre de mi propiedad <code>attributes</code> a <code>lackingAttributes</code>:</p>
+<pre><code class="javascript">rename(paco, 'attributes', 'lackingAttributes');
+</code></pre>
+
+<p>Tal función (que ahora debes prometer que nunca escribirás en ningún programa) podría verse así:</p>
+<pre><code class="text">function rename(obj, name, newName){
+  Object.defineProperty(obj, newName, { 
+                  value: obj[name], 
+                  enumerable: true,
+                  writable: true,
+                  configurable: true
+  });
+  delete obj[name];
+}
+</code></pre>
+
+<p>La propiedad <code>name</code> no es lo suficientemente descriptiva, por lo que queremos cambiarle el nombre a <code>oldName</code> porque este ejemplo no podría tener otra meta que esta. Podemos lograr este cambio de nombre usando múltiples cursores:</p>
+<ol>
+<li>Mueve el cursor hacia arriba <code>name</code> con el operador de búsqueda <code>/name&lt;Enter&gt;</code>,</li>
+<li>Escribe <strong><code>gb</code></strong> tres veces para crear tres cursores en la parte superior de cada <code>name</code> variable,</li>
+<li>Ahora estás en <em>modo Visual</em> con tres selecciones separadas,</li>
+<li>Escribe <code>coldName&lt;ESC&gt;</code> para cambiar cada aparición de <code>name</code> por <code>oldName</code>.</li>
+<li>Todavía tienes tres cursores y ahora estás en <em>modo Normal</em>. Puedes continuar jugando o eliminar todos los cursores adicionales escribiendo <strong><code>&lt;ESC&gt;</code></strong> una vez más.</li>
+</ol>
+<p>Como alternativa, podrías haber escrito <strong><code>&lt;ESC&gt;</code></strong> en el paso <strong><code>4</code></strong> y luego usar el siguiente comando en <em>modo Normal</em>: <strong><code>ciwoldName&lt;ESC&gt;</code></strong>. La diferencia es que el <em>modo Visual</em> opera en la selección de texto actual (las palabras) y el <em>modo Normal te</em> permite operar en cualquier selección de texto utilizando movimientos arbitrarios basados en la posición de los cursores múltiples.</p>
+<h2 id="agregar-multiples-cursores-en-lineas-consecutivas">Agregar múltiples cursores en líneas consecutivas</h2>
+<p>Si deseas <strong>extender tus cursores hacia arriba o hacia abajo en líneas consecutivas</strong>, entonces el mejor enfoque es confiar en el <em>modo de bloque visual</em>:</p>
+<ol>
+<li>Escribe <strong><code>&lt;CTRL-V&gt;</code></strong> para saltar al modo <em>Visual-block</em>.</li>
+<li>Usa <strong><code>j</code></strong>, <strong><code>k</code></strong> para seleccionar un rectángulo de texto hacia abajo o hacia arriba respectivamente.</li>
+<li>Escribe <strong><code>I</code></strong> para insertar o <strong><code>A</code></strong> para agregar, luego escribe un texto y presiona <strong><code>&lt;ESC&gt;</code></strong>.</li>
+<li>Alternativamente, usa cualquier comando del <em>modo Normal</em> para operar en el texto seleccionado de cada línea.</li>
+</ol>
+<p>¿En qué puede serme útil esto, te preguntarás? Imagina una lista de las cosas que necesitarías para sobrevivir a un apocalipsis zombie:</p>
+<pre><code class="text">towel
+wrench
+shotgun
+axe
+rusty broadsword
+sausage
+chain-saw
+</code></pre>
+
+<p>Y ahora, debido a que dos cabezas son mejores que una, y que es posible que te hayas olvidado de algo importante, debes poner esa lista en un sitio web para compartirla con otros futuros supervivientes del apocalipsis zombie. Sitio web significa HTML, significa elementos HTML semánticos, significa que necesitamos ajustar esos elementos en el formato correcto. Cada objeto valioso estará envuelto en un <em>elemento</em> <code>&lt;li&gt;</code> (<em>elemento de lista</em>), y todos irán dentro de una <code>&lt;ol&gt;</code> (lista ordenada) porque el <strong>orden es importante</strong> y, cuando las cosas se ponen feas, prefiero tener una toalla en lugar de una motosierra. </p>
+<p>Entonces, suponiendo que el cursor esté en la parte superior de la primera letra de esa lista:</p>
+<pre><code class="text">v
+towel
+</code></pre>
+
+<p>Escribirías:</p>
+<ol>
+<li><strong><code>CTRL-V</code></strong> para entrar en modo <em>Visual-block</em> ,</li>
+<li>luego <strong><code>j</code></strong> hacia abajo hasta el final de la lista,</li>
+<li>seguido de <strong><code>I</code></strong> para entrar en <em>modo Insertar</em> al comienzo del bloque,</li>
+<li>y finalmente <strong><code>&lt;li&gt;</code></strong> y <strong><code>&lt;ESC&gt;</code></strong> para salir del <em>modo Insertar</em></li>
+</ol>
+<p>Resultando en lo siguiente:</p>
+<pre><code class="html">&lt;li&gt;towel
+&lt;li&gt;wrench
+&lt;li&gt;shotgun
+&lt;li&gt;axe
+&lt;li&gt;rusty broadsword
+&lt;li&gt;sausage
+&lt;li&gt;chain-saw
+</code></pre>
+
+<p>Ahora repita el proceso para agregar la etiqueta de cierre:</p>
+<ol>
+<li><strong><code>CTRL-V</code></strong> para entrar en modo <em>Visual-block</em>,</li>
+<li>luego <strong><code>j</code></strong> hacia abajo hasta el final de la lista,</li>
+<li>ahora usa el <strong><code>$</code></strong> movimiento para mover todos los cursores al final de cada línea,</li>
+<li>escribe <strong><code>A</code></strong> para entrar en <em>modo Insertar</em> al final del bloque,</li>
+<li>y finalmente <strong><code>&lt;/li&gt;</code></strong> y <strong><code>&lt;ESC&gt;</code></strong></li>
+</ol>
+<pre><code class="html">&lt;li&gt;towel&lt;/li&gt;
+&lt;li&gt;wrench&lt;/li&gt;
+&lt;li&gt;shotgun&lt;/li&gt;
+&lt;li&gt;axe&lt;/li&gt;
+&lt;li&gt;rusty broadsword&lt;/li&gt;
+&lt;li&gt;sausage&lt;/li&gt;
+&lt;li&gt;chain-saw&lt;/li&gt;
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../17_macros/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../17_macros/" class="btn btn-xs btn-link">
+        17 Macros
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../15_mas_rapido/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../15_mas_rapido/" class="btn btn-xs btn-link">
+        15 Más rápido
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
